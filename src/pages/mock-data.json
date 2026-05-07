@@ -1,0 +1,637 @@
+[
+  {
+    "title": "Game Mastery",
+    "description": "Game Mastery is about understanding your chosen game. Level up this badge by completing challenges and learning activities around building game sense, developing game mechanics and securing victories.\n\nClick on the sub-badges below to learn more.",
+    "image": "downloaded-images/game-mastery/game-mastery-silver-1.png",
+    "subBadges": [
+      {
+        "title": "Advanced Mechanics",
+        "info": "Demonstrate 3 advanced mechanics",
+        "description": "This sub-badge can be earned by successfully performing 3 advances game mechanics under a coaches supervision.",
+        "category": "Activity",
+        "badge": "Game Mastery",
+        "xp": 4,
+        "url": "https://wymcaesports.co.uk/sub-badge/advanced-mechanics/",
+        "image": "downloaded-images/game-mastery/1a6e6eda-6c7e-42f0-b7a2-7d824940b291.png"
+      },
+      {
+        "title": "Analyst",
+        "info": "Break down a recorded match and identify key moments",
+        "description": "You can achieve this badge by attending lesson and analysing your match.",
+        "category": "Lesson",
+        "badge": "Game Mastery",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/analyst/",
+        "image": "downloaded-images/game-mastery/analyst.png"
+      },
+      {
+        "title": "Average Scorer",
+        "info": "Achieve an average score in 3 matches",
+        "description": "to earn this badge you must achieve an average score in 3 matches, check with your coach what the average score for your chosen game is and make sure to show evidence.",
+        "category": "Activity",
+        "badge": "Game Mastery",
+        "xp": 4,
+        "url": "https://wymcaesports.co.uk/sub-badge/average-scorer/",
+        "image": "downloaded-images/game-mastery/7c8a30ea-0c43-4f39-a9ba-f073839c9d30.png"
+      },
+      {
+        "title": "",
+        "info": "",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/basic-mechanics/",
+        "image": null
+      },
+      {
+        "title": "Endgame Expert",
+        "info": "Understand Endgames",
+        "description": "To earn this badge you must participate fully in a group lesson about end games.",
+        "category": "Lesson",
+        "badge": "Game Mastery",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/endgame-expert/",
+        "image": "downloaded-images/game-mastery/endgame-expert.png"
+      },
+      {
+        "title": "High Scorer",
+        "info": "Achieve an above average score in 3 matches",
+        "description": "To achieve this badge you must achieve an above average score in 3 matches. Check with your coach to find out what the average score is for your chosen game. Remember and show evidence.",
+        "category": "Activity",
+        "badge": "Game Mastery",
+        "xp": 6,
+        "url": "https://wymcaesports.co.uk/sub-badge/high-scorer/",
+        "image": "downloaded-images/game-mastery/414c3d9e-674a-4e83-a122-3d95635b4183.png"
+      },
+      {
+        "title": "Loadout Specialist",
+        "info": "Optimize in-game equipment or character selection",
+        "description": "identify which loadout is best for different strategies to gain this sub badge.",
+        "category": "Lesson",
+        "badge": "Game Mastery",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/loadout-specialist/",
+        "image": "downloaded-images/game-mastery/loadout-specialist-GM.png"
+      },
+      {
+        "title": "Mentor",
+        "info": "Teach a teammate a key skill or technique",
+        "description": "Team leader can achieve this badge by mentoring teammates.",
+        "category": "Activity",
+        "badge": "Game Mastery",
+        "xp": 6,
+        "url": "https://wymcaesports.co.uk/sub-badge/mentor/",
+        "image": "downloaded-images/game-mastery/mentor.png"
+      },
+      {
+        "title": "Meta Master",
+        "info": "Understand the current game meta including relevant mechanics, items, characters, abilities or challenges.",
+        "description": "This sub-badge is earned by attending a lesson that involves learning about new or relevant items or mechanics in the game.",
+        "category": "Lesson",
+        "badge": "Game Mastery",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/meta-master/",
+        "image": "downloaded-images/game-mastery/358182ad-da50-4856-b52c-a3129453c4e5-1.png"
+      },
+      {
+        "title": "MVP",
+        "info": "Play a team match. Achieve the highest score in the team.",
+        "description": "To achieve this sub-badge, you should play a match with some of your team mates and get the highest score in the team. Make sure to show a coach your match results.",
+        "category": "Activity",
+        "badge": "Game Mastery",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/mvp/",
+        "image": "downloaded-images/game-mastery/12a90271-a8cb-481a-a7bc-c0e24b85e499.png"
+      },
+      {
+        "title": "Navigator",
+        "info": "Navigate the map and identify key strategic areas",
+        "description": "You can achieve this badge by participating in a lesson and learning about the in-game map.",
+        "category": "Lesson",
+        "badge": "Game Mastery",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/navigator/",
+        "image": "downloaded-images/game-mastery/navigator.png"
+      },
+      {
+        "title": "Precision Specialist",
+        "info": "Land a high percentage of accurate moves/shots",
+        "description": "Achieve this badge by shooting and moving with high precision.",
+        "category": "Activity",
+        "badge": "Game Mastery",
+        "xp": 6,
+        "url": "https://wymcaesports.co.uk/sub-badge/precision-specialist/",
+        "image": "downloaded-images/game-mastery/precision-specialist.png"
+      },
+      {
+        "title": "Rank Climber",
+        "info": "Achieve an average rank",
+        "description": "Earn this sub-badge by achieving an average rank in game. Check with your coach as to the average rank for your chosen game and remember to show evidence!",
+        "category": "Lesson",
+        "badge": "Game Mastery",
+        "xp": 6,
+        "url": "https://wymcaesports.co.uk/sub-badge/rank-climber/",
+        "image": "downloaded-images/game-mastery/467587b7-472f-43a5-8c18-0098e4872b50.png"
+      },
+      {
+        "title": "Ranked!",
+        "info": "Achieve a basic rank",
+        "description": "Earn this badge by achieving a basic rank in game – make sure to show your coach evidence.",
+        "category": "Lesson",
+        "badge": "Game Mastery",
+        "xp": 3,
+        "url": "https://wymcaesports.co.uk/sub-badge/ranked/",
+        "image": "downloaded-images/game-mastery/83b5e070-e240-48a1-b17e-67674c23c1c0.png"
+      },
+      {
+        "title": "Strategist",
+        "info": "Compare strengths and weaknesses of different game strategies.",
+        "description": "Earn this sub-badge by participating in a lesson about game strategies,",
+        "category": "Lesson",
+        "badge": "Game Mastery",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/strategist/",
+        "image": "downloaded-images/game-mastery/game-mastery-strategist.png"
+      },
+      {
+        "title": "Trick Shot",
+        "info": "Hit a trick shot",
+        "description": "By hitting a trick shot you will achieve this sub badge.",
+        "category": "Activity",
+        "badge": "Game Mastery",
+        "xp": 6,
+        "url": "https://wymcaesports.co.uk/sub-badge/trick-shot/",
+        "image": "downloaded-images/game-mastery/2630b638-1457-425d-ae0a-788cfe426203.png"
+      },
+      {
+        "title": "",
+        "info": "",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/victor-level-1/",
+        "image": null
+      },
+      {
+        "title": "Victor",
+        "info": "Win 6 matches.",
+        "description": "This is the second of a 3 tier badge. To Earn this badge you must win a total of 6 matches and record evidence such as a screenshot or clip.",
+        "category": "Activity",
+        "badge": "Game Mastery",
+        "xp": 6,
+        "url": "https://wymcaesports.co.uk/sub-badge/victor-level-2/",
+        "image": "downloaded-images/game-mastery/54de6039-a62a-4012-a888-99aed9bebb83.png"
+      },
+      {
+        "title": "Victor",
+        "info": "Win 10 matches",
+        "description": "This is the second of a 3 tier badge. To Earn this badge you must win a total of 10 matches and record evidence such as a screenshot or clip.",
+        "category": "Activity",
+        "badge": "Game Mastery",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/victor-level-3/",
+        "image": "downloaded-images/game-mastery/3e4ff4b4-2c4d-4289-84eb-4fb63585c371.png"
+      }
+    ]
+  },
+  {
+    "title": "Team Work",
+    "description": "Team Work is working together to achieve success. understanding your chosen game. Level up this badge by completing challenges and learning activities around communication, collaboration and player roles.",
+    "image": "downloaded-images/team-work/teamwork-silver.png",
+    "subBadges": [
+      {
+        "title": "Activity Planner",
+        "info": "Set an activity",
+        "description": "Plan an activity for your team.",
+        "category": "Lesson",
+        "badge": "Team Work",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/activity-planner/",
+        "image": "downloaded-images/team-work/activity-planner.png"
+      },
+      {
+        "title": "Cheerleader",
+        "info": "Keep morale high during a match",
+        "description": "Maintain a focused and positive mindset during a match to achieve this sub badge.",
+        "category": "Activity",
+        "badge": "Team Work",
+        "xp": 6,
+        "url": "https://wymcaesports.co.uk/sub-badge/cheerleader/",
+        "image": "downloaded-images/team-work/cheerleader.png"
+      },
+      {
+        "title": "Communicator",
+        "info": "Understand effective and ineffective communications",
+        "description": "To earn this badge you should participate fully in a group lesson on effective and ineffective communication",
+        "category": "Lesson",
+        "badge": "Team Work",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/communicator/",
+        "image": "downloaded-images/team-work/0b3f5dca-50f9-4974-a0b0-a12773806437.png"
+      },
+      {
+        "title": "Effective Comms",
+        "info": "Demonstrate good communication",
+        "description": "Take on good communication with teammates to gain this badge.",
+        "category": "Activity",
+        "badge": "Team Work",
+        "xp": 3,
+        "url": "https://wymcaesports.co.uk/sub-badge/effective-comms/",
+        "image": "downloaded-images/team-work/3ef0d27f-3bdd-4fdc-85f9-1d2277208f8d.png"
+      },
+      {
+        "title": "Feedback",
+        "info": "Provide relevant feedback to teammate",
+        "description": "To achieve this badge you should provide a teammate with relevant and useful feedback after a match. This should happen during a team feedback session.",
+        "category": "Lesson",
+        "badge": "Team Work",
+        "xp": 4,
+        "url": "https://wymcaesports.co.uk/sub-badge/feedback-level-1/",
+        "image": "downloaded-images/team-work/feedback-level-1.png"
+      },
+      {
+        "title": "Feedback",
+        "info": "Recieve positive feedback from a teammate",
+        "description": "This badge is awarded after receiving positive feedback during a team feedback session.",
+        "category": "Activity",
+        "badge": "Team Work",
+        "xp": 6,
+        "url": "https://wymcaesports.co.uk/sub-badge/feedback-level-2/",
+        "image": "downloaded-images/team-work/feedback-level-2.png"
+      },
+      {
+        "title": "Feedback",
+        "info": "Apply feedback to improve teamwork",
+        "description": "This is a high value sub-badge that can be achieved by taking feedback from a teammate during a team review session and applying it in a subsequent game.",
+        "category": "Activity",
+        "badge": "Team Work",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/feedback-level-3/",
+        "image": "downloaded-images/team-work/feedback-level-3.png"
+      },
+      {
+        "title": "Feedback Warrior",
+        "info": "learn the importance of feedback",
+        "description": "Players can achieve this sub-badge my taking part in lesson.",
+        "category": "Lesson",
+        "badge": "Team Work",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/feedback-warrior/",
+        "image": "downloaded-images/team-work/feedback-warrior-300x300.png"
+      },
+      {
+        "title": "Role Adopter",
+        "info": "Have a continuous role for 3 matches",
+        "description": "Teammates take chances of the 3 main player roles to achieve this badge.",
+        "category": "Activity",
+        "badge": "Team Work",
+        "xp": 6,
+        "url": "https://wymcaesports.co.uk/sub-badge/role-adapter/",
+        "image": "downloaded-images/team-work/be7f5cf0-ec55-45e7-8aea-b4a224f92ffc-1.png"
+      },
+      {
+        "title": "Role Player",
+        "info": "Understand Player roles",
+        "description": "Achieve this badge by attending lesson and know 3 main roles.",
+        "category": "Lesson",
+        "badge": "Team Work",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/role-player/",
+        "image": "downloaded-images/team-work/role-player.png"
+      },
+      {
+        "title": "Team Execution",
+        "info": "Get 15 elims with your team.",
+        "description": "Get 15 kills with with your team to achieve this sub badge.",
+        "category": "Activity",
+        "badge": "Team Work",
+        "xp": 4,
+        "url": "https://wymcaesports.co.uk/sub-badge/team-execution-level-1/",
+        "image": "downloaded-images/team-work/team-execution-level-1.png"
+      },
+      {
+        "title": "Team Execution",
+        "info": "Get 25 elims with your team",
+        "description": "Get 25 elims with your team to achieve this sub badge.",
+        "category": "Activity",
+        "badge": "Team Work",
+        "xp": 6,
+        "url": "https://wymcaesports.co.uk/sub-badge/team-execution-level-2/",
+        "image": "downloaded-images/team-work/team-execution-level-2.png"
+      },
+      {
+        "title": "Team Leader",
+        "info": "Understand Team Leader Role",
+        "description": "Player will take part in team leader lesson to achieve this sub badge.",
+        "category": "Lesson",
+        "badge": "Team Work",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/team-leader/",
+        "image": "downloaded-images/team-work/a2651737-b0c2-4ba7-96e6-3b321ea54fc8.png"
+      },
+      {
+        "title": "Team Player",
+        "info": "Play 5 matches as part of a team",
+        "description": "You must play 5 matches as part of a team to earn this sub-badge.",
+        "category": "Lesson",
+        "badge": "Team Work",
+        "xp": 4,
+        "url": "https://wymcaesports.co.uk/sub-badge/team-player-level-1/",
+        "image": "downloaded-images/team-work/afbfdf73-d074-4d10-806e-0440003e35cc.png"
+      },
+      {
+        "title": "Team Player",
+        "info": "Play 10 matches as part of a team",
+        "description": "You must play 10 matches as part of a team to earn this sub-badge",
+        "category": "Lesson",
+        "badge": "Team Work",
+        "xp": 6,
+        "url": "https://wymcaesports.co.uk/sub-badge/team-player-level-2/",
+        "image": null
+      },
+      {
+        "title": "Yes Coach",
+        "info": "Coach a team mate through an entire game",
+        "description": "Take on the 1 on 1 coaching activity to receive this sub badge.",
+        "category": "Activity",
+        "badge": "Team Work",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/yes-coach/",
+        "image": "downloaded-images/team-work/yes-coach.png"
+      }
+    ]
+  },
+  {
+    "title": "Personal Development",
+    "description": "Personal development is understanding our own stengths, weaknesses and goals. Level up this badge by completing learning opportunites and challenges aound practice, mindset, accountability and observing healthy habits in gaming any beyond.",
+    "image": "downloaded-images/personal-development/personal-development-silver.png",
+    "subBadges": [
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/all-time-high/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/emotions-manager/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/emotions-strategist/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/hand-warmer/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/hero-persona/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/high-stakes-emotions/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/improvement-era/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/metric-master/",
+        "image": null
+      },
+      {
+        "title": "",
+        "info": "",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/personal-goals/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/positivity-pioneer/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/practice-warrior/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/precision-planner/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/touch-grass/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/victory-in-defeat/",
+        "image": null
+      }
+    ]
+  },
+  {
+    "title": "Esports Citizen",
+    "description": "Game Mastery is about understanding your chosen game. Level up this badge by completing challenges and learning activities around building game sense, developing game mechanics and securing victories.\n\nClick on the sub-badges below to learn more.",
+    "image": "downloaded-images/esports-citizen/esports-citizen-silver.png",
+    "subBadges": [
+      {
+        "title": "GGWP",
+        "info": "Demonstrate good sportsmanship after a competitive match",
+        "description": "Show that you can apply good sportsmanship after a match to achieve this badge.",
+        "category": "Activity",
+        "badge": "Esports Citizen",
+        "xp": 4,
+        "url": "https://wymcaesports.co.uk/sub-badge/ggwp/",
+        "image": "downloaded-images/esports-citizen/ggwp.png"
+      },
+      {
+        "title": "Good Sport",
+        "info": "Understand the importance of sportsmanship in esports",
+        "description": "Achieve this badge by attending session lesson and showing how to be a good sport in esports.",
+        "category": "Lesson",
+        "badge": "Esports Citizen",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/good-sport/",
+        "image": "downloaded-images/esports-citizen/good-sport.png"
+      },
+      {
+        "title": "Good Vibes Only",
+        "info": "Take part in a Fortnite match where you show positive communication, help your teammates, and keep the good vibes going from start to finish.",
+        "description": "Show positive energy, kindness, and respect while gaming. Support your teammates, use encouraging words, and be a great sport — win or lose!",
+        "category": "Lesson",
+        "badge": "Esports Citizen",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/good-vibes-only/",
+        "image": null
+      },
+      {
+        "title": "Know The Rules",
+        "info": "Understand the rules of Academy",
+        "description": "Earn this badge by participating in a group lesson around Academy Rules.",
+        "category": "Lesson",
+        "badge": "Esports Citizen",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/know-the-rules/",
+        "image": "downloaded-images/esports-citizen/3f4f94a6-7f04-4dbe-a96b-05f9d3995069.png"
+      }
+    ]
+  },
+  {
+    "title": "Digital Skills",
+    "description": "Game Mastery is about understanding your chosen game. Level up this badge by completing challenges and learning activities around building game sense, developing game mechanics and securing victories.\n\nClick on the sub-badges below to learn more.",
+    "image": "downloaded-images/digital-skills/digital-skills-silver.png",
+    "subBadges": [
+      {
+        "title": "Catch That Moment",
+        "info": "Take a screenshot",
+        "description": "Take a screenshot to gain this badge.",
+        "category": "Activity",
+        "badge": "Digital Skills",
+        "xp": 3,
+        "url": "https://wymcaesports.co.uk/sub-badge/catch-that-moment/",
+        "image": "downloaded-images/digital-skills/catch-the-moment.png"
+      },
+      {
+        "title": "Content Creator",
+        "info": "Understand content creation",
+        "description": "Achieve your content creator badge by attending session lesson.",
+        "category": "Lesson",
+        "badge": "Digital Skills",
+        "xp": 10,
+        "url": "https://wymcaesports.co.uk/sub-badge/content-creator/",
+        "image": "downloaded-images/digital-skills/content-creator.png"
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/content-investigator/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/hit-a-clip/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/protection-master/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/safe-gaming/",
+        "image": null
+      },
+      {
+        "title": "Wishaw YMCA Esports Academy",
+        "info": "WYMCA ESPORTS ACADEMY",
+        "description": "",
+        "category": "",
+        "badge": "",
+        "xp": 0,
+        "url": "https://wymcaesports.co.uk/sub-badge/social-star/",
+        "image": null
+      }
+    ]
+  }
+]

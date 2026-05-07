@@ -1,0 +1,95 @@
+.pwa-install {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  width: min(24rem, calc(100vw - 2rem));
+  padding: 1rem 1rem 1.1rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgb(16 157 209 / 0.28);
+  background: linear-gradient(180deg, rgb(10 24 36 / 0.96), rgb(6 18 29 / 0.96));
+  box-shadow: 0 24px 50px rgb(0 0 0 / 0.32);
+  color: var(--on-surface);
+}
+
+.pwa-install__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.06);
+  color: var(--on-surface);
+  cursor: pointer;
+}
+
+.pwa-install__badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  background: rgb(16 157 209 / 0.14);
+  color: #8cddff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.pwa-install h2 {
+  margin: 0.8rem 0 0.35rem;
+  font-size: 1.2rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.pwa-install p {
+  margin: 0;
+  color: var(--on-surface-variant);
+}
+
+.pwa-install__action {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), #67d8ff);
+  color: #03131d;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pwa-install__action:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.pwa-install__steps {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--on-surface-variant);
+}
+
+.pwa-install__steps li + li {
+  margin-top: 0.45rem;
+}
+
+@media (max-width: 640px) {
+  .pwa-install {
+    left: 0.75rem;
+    right: 0.75rem;
+    width: auto;
+    bottom: 0.75rem;
+  }
+}

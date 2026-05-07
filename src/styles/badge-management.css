@@ -1,0 +1,678 @@
+/* ── Badge Management Page ───────────────────────────────── */
+
+.badge-mgmt {
+  min-height: 100vh;
+  background: var(--surface);
+  color: var(--on-surface);
+}
+
+/* ── Top bar ─────────────────────────────────────────────── */
+.badge-mgmt-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgb(7 20 32 / 0.92);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgb(136 146 154 / 0.25);
+}
+
+.badge-mgmt-topbar h1 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+
+.badge-mgmt-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ── Main content ────────────────────────────────────────── */
+.badge-mgmt-main {
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* ── Page header ─────────────────────────────────────────── */
+.badge-mgmt-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.badge-mgmt-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.badge-mgmt-kicker {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+}
+
+.badge-mgmt-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* ── Badge filter ────────────────────────────────────────── */
+.badge-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.badge-filter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--on-surface-variant, #8a929a);
+}
+
+.badge-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgb(136 146 154 / 0.3);
+  background: rgb(255 255 255 / 0.04);
+  color: var(--on-surface-variant, #8a929a);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.badge-filter-chip:hover {
+  background: rgb(255 255 255 / 0.08);
+  border-color: var(--primary);
+  color: var(--on-surface);
+}
+
+.badge-filter-chip--active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.badge-filter-chip--active:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  filter: brightness(1.1);
+}
+
+/* ── Primary add button ──────────────────────────────────── */
+.badge-mgmt-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  padding: 0.65rem 1.4rem;
+  transition: all 0.2s ease;
+}
+
+.badge-mgmt-btn--primary {
+  background: linear-gradient(135deg, var(--primary), #0c7eaa);
+  color: #fff;
+}
+
+.badge-mgmt-btn--primary:hover {
+  filter: brightness(1.15);
+}
+
+.badge-mgmt-btn--outline {
+  background: var(--surface-container-high);
+  color: var(--primary);
+  border: 1px solid rgb(16 157 209 / 0.3);
+}
+
+.badge-mgmt-btn--outline:hover {
+  background: var(--surface-container-highest);
+}
+
+.badge-mgmt-btn--ghost {
+  background: transparent;
+  color: var(--on-surface-variant);
+  padding: 0.4rem 0.7rem;
+  font-size: 0.65rem;
+}
+
+.badge-mgmt-btn--ghost:hover {
+  color: var(--primary);
+}
+
+.badge-mgmt-btn--danger {
+  background: transparent;
+  color: #ff5252;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.65rem;
+}
+
+.badge-mgmt-btn--danger:hover {
+  color: #ff8a80;
+}
+
+/* ── Badge category card ─────────────────────────────────── */
+.badge-cat {
+  background: var(--surface-container-low);
+  border-radius: 1rem;
+  overflow: hidden;
+  border-left: 4px solid var(--primary);
+}
+
+.badge-cat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  background: var(--surface-container-high);
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.badge-cat-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.badge-cat-icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 0.6rem;
+  background: rgb(16 157 209 / 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.badge-cat-icon .material-symbol {
+  font-size: 1.6rem;
+}
+
+.badge-cat-info h3 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.badge-cat-info p {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--on-surface-variant);
+}
+
+.badge-cat-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* ── Sub-badge block ─────────────────────────────────────── */
+.badge-cat-body {
+  padding: 1rem 1.2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.sub-badge {
+  background: var(--surface-container-high);
+  border-radius: 0.75rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.sub-badge:hover {
+  border-color: rgb(16 157 209 / 0.2);
+}
+
+.sub-badge-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sub-badge-left {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Ordering column */
+.sub-badge-order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  background: var(--surface-container-highest);
+  border-radius: 0.35rem;
+  padding: 0.35rem 0.55rem;
+  min-width: 2rem;
+}
+
+.sub-badge-order button {
+  background: none;
+  border: none;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  font-size: 1rem;
+}
+
+.sub-badge-order button:hover {
+  color: var(--primary);
+}
+
+.sub-badge-order span.order-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.sub-badge-meta h4 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sub-badge-xp-tag {
+  background: rgb(16 157 209 / 0.1);
+  color: var(--primary);
+  font-size: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.sub-badge-desc {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  color: var(--on-surface-variant);
+  line-height: 1.4;
+}
+
+/* ── Challenges list inside sub-badge ────────────────────── */
+.challenges-list {
+  margin-top: 0.75rem;
+  margin-left: 2.4rem;
+  padding-left: 1.2rem;
+  border-left: 1px solid rgb(77 90 102 / 0.3);
+  display: grid;
+  gap: 0.5rem;
+}
+
+.challenge-row {
+  background: var(--surface-container-low);
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.challenge-row-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.challenge-row-left .material-symbol {
+  color: var(--on-surface-variant);
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.challenge-row-info p {
+  margin: 0;
+}
+
+.challenge-row-info p:first-child {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.challenge-row-info p:last-child {
+  font-size: 0.72rem;
+  color: var(--on-surface-variant);
+}
+
+.challenge-row-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.challenge-pts {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Add placeholder (dashed) ────────────────────────────── */
+.add-placeholder {
+  width: 100%;
+  border: 2px dashed rgb(77 90 102 / 0.3);
+  border-radius: 0.75rem;
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  transition: all 0.2s;
+  gap: 0.3rem;
+}
+
+.add-placeholder:hover {
+  border-color: rgb(16 157 209 / 0.5);
+  color: var(--primary);
+}
+
+.add-placeholder .material-symbol {
+  font-size: 1.8rem;
+  transition: transform 0.2s;
+}
+
+.add-placeholder:hover .material-symbol {
+  transform: scale(1.1);
+}
+
+.add-placeholder span:last-child {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* ── Stats cards ─────────────────────────────────────────── */
+.badge-mgmt-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.badge-mgmt-stat-card {
+  background: var(--surface-container-low);
+  padding: 1.2rem;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-mgmt-stat-card .bg-icon {
+  position: absolute;
+  right: -0.5rem;
+  bottom: -0.5rem;
+  font-size: 4.5rem;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.badge-mgmt-stat-card h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--primary);
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin: 0 0 0.5rem;
+}
+
+.badge-mgmt-stat-card .value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.badge-mgmt-stat-card .desc {
+  font-size: 0.72rem;
+  color: var(--on-surface-variant);
+  margin-top: 0.25rem;
+}
+
+/* ── Modal overlay ───────────────────────────────────────── */
+.badge-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgb(0 0 0 / 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: modalFadeIn 0.2s ease;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.badge-modal {
+  background: var(--surface-container-high);
+  border: 1px solid var(--outline-variant);
+  border-radius: 1.2rem;
+  width: 100%;
+  max-width: 480px;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  animation: modalSlideIn 0.2s ease;
+}
+
+@keyframes modalSlideIn {
+  from { transform: translateY(12px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.badge-modal h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge-modal p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+  line-height: 1.4;
+}
+
+.badge-modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+}
+
+.badge-modal input,
+.badge-modal textarea,
+.badge-modal select {
+  background: #0c0f0f;
+  border: 1px solid var(--outline-variant);
+  border-radius: 0.5rem;
+  color: var(--on-surface);
+  padding: 0.6rem 0.75rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.badge-modal input:focus,
+.badge-modal textarea:focus,
+.badge-modal select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.badge-modal textarea {
+  resize: vertical;
+  min-height: 4rem;
+}
+
+.badge-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+
+/* ── Toggle switch ───────────────────────────────────────── */
+.toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.toggle-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--on-surface-variant);
+}
+
+.toggle {
+  position: relative;
+  width: 2.6rem;
+  height: 1.4rem;
+  background: var(--surface-container-highest);
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s;
+}
+
+.toggle.toggle--on {
+  background: var(--primary);
+}
+
+.toggle.toggle--on::after {
+  transform: translateX(1.2rem);
+}
+
+/* ── Delete confirmation ─────────────────────────────────── */
+.badge-modal--danger h3 {
+  color: #ff5252;
+}
+
+.badge-mgmt-btn--danger-fill {
+  background: #ff5252;
+  color: #fff;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.badge-mgmt-btn--danger-fill:hover {
+  filter: brightness(1.15);
+}
+
+/* ── Responsive tweaks ───────────────────────────────────── */
+@media (max-width: 600px) {
+  .badge-mgmt-main {
+    padding: 1rem;
+  }
+  .badge-mgmt-title {
+    font-size: 1.6rem;
+  }
+  .badge-cat-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .challenges-list {
+    margin-left: 0.5rem;
+    padding-left: 0.75rem;
+  }
+}

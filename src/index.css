@@ -1,0 +1,14 @@
+@import './styles/base.css';
+@import './styles/login.css';
+@import './styles/admin.css';
+@import './styles/player.css';
+@import './styles/submit.css';
+@import './styles/manage-groups.css';
+@import './styles/tiers.css';
+@import './styles/badges.css';
+@import './styles/leaderboard.css';
+@import './styles/parent.css';
+@import './styles/registration.css';
+@import './styles/registration-success.css';
+@import './styles/nav-drawer.css';
+@import './styles/badge-management.css';

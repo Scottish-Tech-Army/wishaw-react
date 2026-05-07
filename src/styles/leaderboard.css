@@ -1,0 +1,682 @@
+/* =============================================
+   LEADERBOARD PAGE
+   ============================================= */
+
+.lb-page {
+  min-height: 100vh;
+  background: var(--surface);
+  color: var(--on-surface);
+  padding-bottom: 6rem;
+  position: relative;
+}
+
+/* Kinetic background glow */
+.lb-glow {
+  position: fixed;
+  top: 5rem;
+  right: -10%;
+  width: 80vw;
+  height: 80vw;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgb(16 157 209 / 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top bar */
+.lb-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lb-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lb-topbar-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 2px solid rgb(16 157 209 / 0.2);
+  flex-shrink: 0;
+}
+
+.lb-topbar-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lb-topbar h1 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: -0.03em;
+}
+
+.lb-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lb-icon-btn {
+  border: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 9999px;
+  background: rgb(37 52 67 / 0.3);
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 180ms;
+}
+
+.lb-icon-btn:hover {
+  background: rgb(37 52 67 / 0.5);
+}
+
+/* Main content */
+.lb-main {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 1rem 1rem;
+}
+
+/* Section header */
+.lb-section-header {
+  margin-bottom: 2rem;
+}
+
+.lb-kicker {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgb(16 157 209 / 0.8);
+  margin-bottom: 0.5rem;
+}
+
+.lb-section-header h2 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.8rem, 10vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.lb-section-header h2 span {
+  color: var(--primary);
+}
+
+/* Podium section */
+.lb-podium {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Rank 1 card */
+.lb-rank1 {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.2rem;
+  background: var(--surface-container-high);
+  padding: 0.25rem;
+}
+
+.lb-rank1-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+  opacity: 0.2;
+}
+
+.lb-rank1-inner {
+  position: relative;
+  background: rgba(40, 42, 43, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lb-rank1-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.lb-rank1-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.lb-rank-badge {
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: 0.75rem;
+  z-index: 1;
+}
+
+.lb-rank-badge--gold {
+  background: var(--primary);
+  color: var(--on-primary-container);
+  box-shadow: 0 0 12px rgb(16 157 209 / 0.6);
+}
+
+.lb-rank-badge--silver {
+  background: #9ca3af;
+  color: var(--surface);
+}
+
+.lb-rank-badge--bronze {
+  background: #cd7f32;
+  color: #fff;
+}
+
+.lb-rank1-avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 9999px;
+  border: 4px solid var(--primary);
+  padding: 2px;
+  background: var(--surface-container);
+  overflow: hidden;
+}
+
+.lb-rank1-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.lb-rank1-name {
+  margin: 0 0 0.35rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.lb-rank1-badge-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.lb-rank1-badge-label .material-symbol {
+  font-size: 1rem;
+  color: var(--primary);
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+}
+
+.lb-rank1-xp {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.lb-rank1-xp strong {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.lb-rank1-xp span {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--outline);
+  margin-top: 0.2rem;
+}
+
+/* Ranks 2 & 3 */
+.lb-podium-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.lb-rank-card {
+  background: rgba(40, 42, 43, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2px solid transparent;
+}
+
+.lb-rank-card--silver {
+  border-bottom-color: rgb(156 163 175 / 0.2);
+}
+
+.lb-rank-card--bronze {
+  border-bottom-color: rgb(205 127 50 / 0.2);
+}
+
+.lb-rank-card-avatar-wrap {
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.lb-rank-card-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  padding: 2px;
+}
+
+.lb-rank-card-avatar--silver {
+  border: 2px solid #9ca3af;
+}
+
+.lb-rank-card-avatar--bronze {
+  border: 2px solid #cd7f32;
+}
+
+.lb-rank-card-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.lb-rank-card-name {
+  margin: 0 0 0.25rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lb-rank-card-xp {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--primary);
+  margin-top: 0.25rem;
+}
+
+/* Filters */
+.lb-filters {
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  /* hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.lb-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.lb-filters-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lb-filter-row {
+  display: flex;
+  gap: 0.5rem;
+  min-width: max-content;
+  padding-bottom: 0.25rem;
+  border: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* visually hide the fieldset legend while keeping it accessible */
+.lb-filter-legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.lb-filter-btn {
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 180ms, color 180ms;
+}
+
+.lb-filter-btn--active {
+  background: var(--primary);
+  color: var(--on-primary-container);
+}
+
+.lb-filter-btn--inactive {
+  background: var(--surface-container-high);
+  color: var(--on-surface-variant);
+}
+
+.lb-filter-btn--inactive:hover {
+  background: var(--surface-container-highest);
+}
+
+.lb-filter-btn--game-active {
+  background: rgb(16 157 209 / 0.1);
+  color: var(--primary);
+  border: 1px solid rgb(16 157 209 / 0.2);
+}
+
+.lb-filter-btn--game-inactive {
+  background: var(--surface-container-low);
+  color: var(--outline);
+  border: 1px solid transparent;
+}
+
+/* Rankings list */
+.lb-rankings {
+  background: var(--surface-container-low);
+  border-radius: 1.5rem 1.5rem 0 0;
+  padding: 1.5rem;
+  margin: 0 -1rem;
+}
+
+.lb-rankings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.lb-rankings-header h3 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.lb-rankings-total {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  color: var(--outline);
+  letter-spacing: 0.04em;
+}
+
+.lb-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* Ranking row */
+.lb-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: var(--surface-container);
+  transition: background 180ms;
+}
+
+.lb-row:hover {
+  background: var(--surface-container-high);
+}
+
+.lb-row--me {
+  background: rgb(16 157 209 / 0.05);
+  border: 1px solid rgb(16 157 209 / 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.lb-row--me::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--primary);
+}
+
+.lb-row-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lb-row-rank {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: var(--outline);
+  width: 1.75rem;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.lb-row-rank--me {
+  color: var(--primary);
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.lb-row-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: var(--surface-container-highest);
+  flex-shrink: 0;
+}
+
+.lb-row-avatar--me {
+  border: 1px solid var(--primary);
+}
+
+.lb-row-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lb-row-name {
+  margin: 0 0 0.15rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: -0.01em;
+}
+
+.lb-row-name--me {
+  color: var(--primary);
+}
+
+.lb-row-category {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--outline);
+}
+
+.lb-row-category--me {
+  color: rgb(16 157 209 / 0.7);
+}
+
+.lb-row-right {
+  text-align: right;
+}
+
+.lb-row-xp {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--on-surface);
+}
+
+.lb-row-xp--me {
+  color: var(--primary);
+}
+
+.lb-row-xp-label {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--outline);
+  margin-top: 0.1rem;
+}
+
+.lb-row-xp-label--me {
+  color: rgb(16 157 209 / 0.7);
+}
+
+/* ── Initials avatars ───────────────────── */
+.lb-initials-avatar {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-container-highest);
+}
+
+.lb-initials-avatar--primary {
+  background: rgb(16 157 209 / 0.15);
+}
+
+.lb-initials {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  line-height: 1;
+  user-select: none;
+}
+
+.lb-initials-avatar--primary .lb-initials {
+  color: var(--primary);
+}
+
+.lb-initials--lg { font-size: 1.35rem; }
+.lb-initials--md { font-size: 0.95rem; }
+.lb-initials--sm { font-size: 0.7rem;  }
+
+/* Bottom nav */
+.lb-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 1rem calc(0.5rem + env(safe-area-inset-bottom));
+  background: rgb(7 20 32 / 0.92);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgb(136 146 154 / 0.2);
+  box-shadow: 0 -8px 30px rgb(16 157 209 / 0.1);
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.lb-bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: all 180ms;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.lb-bottom-nav a small {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lb-bottom-nav a.is-active {
+  color: white;
+  background: var(--primary);
+}
+
+@media (min-width: 768px) {
+  .lb-main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 1.5rem;
+  }
+
+  .lb-podium-pair {
+    max-width: 460px;
+  }
+
+  .lb-rankings {
+    border-radius: 1.5rem;
+    margin: 0;
+  }
+
+  .lb-bottom-nav {
+    display: none;
+  }
+}

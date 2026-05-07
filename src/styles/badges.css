@@ -1,0 +1,453 @@
+/* ─── Badges Page ─────────────────────────────────────────── */
+.badges-page {
+  min-height: 100vh;
+  background: var(--surface);
+  color: var(--on-surface);
+  padding-bottom: 5rem;
+}
+
+/* ── reuse player topbar & bottom-nav from player.css ─────── */
+
+/* ─── Page hero ─────────────────────────────────────────────── */
+.badges-hero {
+  position: relative;
+  padding: 2.5rem 1.5rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.badges-hero-glow {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 480px;
+  height: 220px;
+  background: radial-gradient(ellipse, rgba(121, 209, 255, 0.12), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.badges-kicker {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.badges-hero h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.badges-subtitle {
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+  max-width: 520px;
+  line-height: 1.55;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Big-5 summary strip ──────────────────────────────────── */
+.badges-summary-strip {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.25rem 1.5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.badges-summary-strip::-webkit-scrollbar { display: none; }
+
+.badges-summary-chip {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: 9999px;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  transition: border-color 160ms, background 160ms;
+}
+
+.badges-summary-chip.is-active,
+.badges-summary-chip:hover {
+  border-color: var(--primary);
+  background: rgba(121, 209, 255, 0.08);
+}
+
+.badge-chip-img {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.badge-chip-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--on-surface);
+  white-space: nowrap;
+}
+
+.badge-chip-count {
+  font-size: 0.65rem;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  background: rgba(121, 209, 255, 0.15);
+  color: var(--primary);
+  border-radius: 9999px;
+  padding: 0.1rem 0.45rem;
+}
+
+/* ─── Main canvas ──────────────────────────────────────────── */
+.badges-main {
+  padding: 1rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ─── Badge category block ─────────────────────────────────── */
+.badge-category {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.badge-category-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.badge-category-img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  background: var(--surface-container-high);
+  padding: 0.25rem;
+}
+
+.badge-category-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.badge-category-desc {
+  font-size: 0.8rem;
+  color: var(--on-surface-variant);
+  margin: 0;
+  max-width: 560px;
+  line-height: 1.55;
+}
+
+.badge-category-accent {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--outline-variant), transparent);
+}
+
+/* ─── Sub-badge grid ────────────────────────────────────────── */
+.sub-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* ─── Sub-badge card ────────────────────────────────────────── */
+.sub-badge-card {
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: 1rem;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: border-color 180ms, transform 180ms, box-shadow 180ms;
+  position: relative;
+  overflow: hidden;
+  /* reset default button styles */
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-align: left;
+  width: 100%;
+}
+
+.sub-badge-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(121, 209, 255, 0.12);
+}
+
+.sub-badge-card.is-locked,
+.sub-badge-card:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+  cursor: default;
+}
+
+.sub-badge-card.is-completed {
+  border-color: rgba(121, 209, 255, 0.4);
+  background: rgba(121, 209, 255, 0.06);
+}
+
+.sub-badge-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.sub-badge-img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  background: var(--surface-container-high);
+  padding: 0.2rem;
+  flex-shrink: 0;
+}
+
+.sub-badge-img-placeholder {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background: var(--surface-container-high);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  color: var(--on-surface-variant);
+}
+
+.sub-badge-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.sub-badge-meta h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sub-badge-info {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.sub-badge-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 9999px;
+  padding: 0.2rem 0.6rem;
+  flex-shrink: 0;
+}
+
+.sub-badge-status-pill.status-not-started {
+  background: rgba(136, 146, 154, 0.15);
+  color: var(--on-surface-variant);
+}
+
+.sub-badge-status-pill.status-submitted {
+  background: rgba(255, 180, 0, 0.15);
+  color: #f5c518;
+}
+
+.sub-badge-status-pill.status-approved {
+  background: rgba(72, 199, 142, 0.15);
+  color: #48c78e;
+}
+
+.sub-badge-status-pill.status-locked {
+  background: rgba(136, 146, 154, 0.1);
+  color: var(--on-surface-variant);
+}
+
+/* ─── XP tag ────────────────────────────────────────────────── */
+.sub-badge-xp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  background: rgba(121, 209, 255, 0.1);
+  border-radius: 9999px;
+  padding: 0.15rem 0.55rem;
+}
+
+/* ─── Category tag ──────────────────────────────────────────── */
+.sub-badge-category-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--on-surface-variant);
+  background: var(--surface-container-high);
+  border-radius: 9999px;
+  padding: 0.15rem 0.55rem;
+}
+
+.sub-badge-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Lock icon overlay ─────────────────────────────────────── */
+.sub-badge-lock-overlay {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  color: var(--on-surface-variant);
+  font-size: 1rem;
+}
+
+/* ─── Expanded detail panel ─────────────────────────────────── */
+.sub-badge-detail {
+  background: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: 1rem;
+  padding: 1.25rem 1.4rem;
+  margin-top: -0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.sub-badge-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sub-badge-detail-header h5 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.sub-badge-detail p {
+  font-size: 0.82rem;
+  color: var(--on-surface-variant);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.sub-badge-detail-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.55rem 1.2rem;
+  cursor: pointer;
+  transition: filter 160ms, transform 160ms;
+  text-decoration: none;
+}
+
+.sub-badge-detail-cta:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+
+/* ─── Show more / less toggle ───────────────────────────────── */
+.sub-badges-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: center;
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: 9999px;
+  padding: 0.5rem 1.2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  cursor: pointer;
+  transition: border-color 160ms, background 160ms, transform 160ms;
+}
+
+.sub-badges-toggle-btn:hover {
+  border-color: var(--primary);
+  background: rgba(121, 209, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (min-width: 640px) {
+  .badges-hero {
+    padding: 3rem 2rem 1.5rem;
+  }
+  .badges-main {
+    padding: 1.5rem 2rem;
+  }
+  .badges-summary-strip {
+    padding: 0.25rem 2rem 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sub-badges-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}

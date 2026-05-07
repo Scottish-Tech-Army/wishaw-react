@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300..800&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+:root {
+  --primary: #109dd1;
+  --primary-container: #109dd1;
+  --on-primary: #ffffff;
+  --on-primary-container: #00212e;
+  --background-dark: #101d22;
+  --surface: #071420;
+  --surface-container-low: #101d28;
+  --surface-container-high: #1f2b37;
+  --surface-container-highest: #253443;
+  --outline: #88929a;
+  --outline-variant: #4d5a66;
+  --on-surface: #d7e4f4;
+  --on-surface-variant: #bdc8d0;
+  --secondary: #ffa500;
+  --tertiary: #bc6dfd;
+
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--surface);
+  color: var(--on-surface);
+}
+
+.material-symbol {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1;
+  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+}

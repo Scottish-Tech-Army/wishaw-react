@@ -1,0 +1,183 @@
+/* ───────────────────────────────────────────────
+   Nav Drawer – esports dark theme
+   ─────────────────────────────────────────────── */
+
+/* Body lock when drawer is open */
+.nav-drawer-body-lock {
+  overflow: hidden;
+}
+
+/* ── Floating action button (menu trigger) ──── */
+.nav-fab {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--on-primary);
+  box-shadow: 0 4px 16px rgba(16, 157, 209, 0.45);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.nav-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(16, 157, 209, 0.6);
+}
+
+/* ── Backdrop ──────────────────────────────── */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  animation: nav-fade-in 0.2s ease forwards;
+}
+@keyframes nav-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Drawer panel ──────────────────────────── */
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 280px;
+  max-width: 85vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-container-low);
+  border-right: 1px solid var(--outline-variant);
+  transform: translateX(-100%);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+.nav-drawer--open {
+  transform: translateX(0);
+}
+
+/* ── Header ────────────────────────────────── */
+.nav-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem 0.75rem;
+  border-bottom: 1px solid var(--outline-variant);
+}
+.nav-drawer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.nav-drawer-brand strong {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--on-surface);
+}
+.nav-drawer-brand small {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--outline);
+  text-transform: uppercase;
+}
+.nav-drawer-logo {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--tertiary));
+  color: #fff;
+  font-size: 1.2rem;
+}
+.nav-drawer-close {
+  background: none;
+  border: none;
+  color: var(--outline);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+.nav-drawer-close:hover {
+  color: var(--on-surface);
+  background: var(--surface-container-high);
+}
+
+/* ── Section labels ────────────────────────── */
+.nav-drawer-section-label {
+  padding: 1rem 1.25rem 0.35rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--outline);
+}
+
+/* ── Link list ─────────────────────────────── */
+.nav-drawer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0.5rem;
+}
+.nav-drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: none;
+  color: var(--on-surface-variant);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  text-align: left;
+  font-family: inherit;
+}
+.nav-drawer-link .material-symbol {
+  font-size: 1.25rem;
+}
+.nav-drawer-link:hover {
+  background: var(--surface-container-high);
+  color: var(--on-surface);
+}
+.nav-drawer-link--active {
+  background: rgba(16, 157, 209, 0.12);
+  color: var(--primary);
+  font-weight: 600;
+}
+.nav-drawer-link--active .material-symbol {
+  color: var(--primary);
+}
+
+/* ── Footer / sign-out ─────────────────────── */
+.nav-drawer-footer {
+  margin-top: auto;
+  padding: 0.75rem 0.5rem;
+  border-top: 1px solid var(--outline-variant);
+}
+.nav-drawer-link--logout {
+  color: #ef5350;
+}
+.nav-drawer-link--logout:hover {
+  background: rgba(239, 83, 80, 0.08);
+  color: #ef5350;
+}

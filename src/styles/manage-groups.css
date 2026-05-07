@@ -1,0 +1,707 @@
+/* ── Page Layout ──────────────────────────────────────────────────────────── */
+
+.mg-main {
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* Ambient glows */
+.mg-glow {
+  position: fixed;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 0;
+}
+.mg-glow--tr {
+  top: -6rem;
+  right: -6rem;
+  width: 28rem;
+  height: 28rem;
+  background: radial-gradient(circle, rgb(16 157 209 / 0.12) 0%, transparent 70%);
+  filter: blur(40px);
+}
+.mg-glow--ml {
+  top: 50%;
+  left: -6rem;
+  width: 20rem;
+  height: 20rem;
+  background: radial-gradient(circle, rgb(16 157 209 / 0.06) 0%, transparent 70%);
+  filter: blur(60px);
+}
+
+/* ── Page Header ──────────────────────────────────────────────────────────── */
+
+.mg-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.mg-page-title {
+  margin: 0.3rem 0 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.mg-page-title span {
+  color: var(--primary);
+}
+
+.mg-page-subtitle {
+  margin: 0.75rem 0 0;
+  color: var(--on-surface-variant);
+  font-size: 0.9rem;
+  max-width: 38rem;
+  line-height: 1.6;
+}
+
+.mg-create-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+/* ── Stats Bar ────────────────────────────────────────────────────────────── */
+
+.mg-stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.mg-stat-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgb(136 146 154 / 0.18);
+  background: rgb(16 29 40 / 0.5);
+  padding: 0.6rem 1.1rem;
+  flex: 1;
+  min-width: 150px;
+}
+
+.mg-stat-chip--trend {
+  border-color: rgb(16 157 209 / 0.2);
+}
+
+.mg-stat-icon {
+  color: var(--primary);
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-size: 1.4rem;
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.mg-stat-label {
+  display: block;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--on-surface-variant);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+.mg-stat-num {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: 1.15rem;
+  line-height: 1.1;
+  color: var(--on-surface);
+}
+
+.mg-stat-num--live {
+  color: var(--primary);
+}
+
+/* ── Content Grid ─────────────────────────────────────────────────────────── */
+
+.mg-content {
+  display: grid;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.mg-groups-col {
+  display: grid;
+  gap: 1rem;
+}
+
+.mg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.9rem;
+}
+
+/* ── Badge / Label ────────────────────────────────────────────────────────── */
+
+.mg-badge {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 0.5rem;
+}
+
+.mg-badge--competitive {
+  background: rgb(16 157 209 / 0.15);
+  color: var(--primary);
+}
+
+.mg-badge--academy {
+  background: rgb(136 146 154 / 0.1);
+  color: var(--on-surface-variant);
+  border: 1px solid rgb(136 146 154 / 0.3);
+}
+
+.mg-badge--community {
+  background: rgb(255 165 0 / 0.12);
+  color: var(--secondary);
+  border: 1px solid rgb(255 165 0 / 0.25);
+}
+
+.mg-badge--creative {
+  background: rgb(188 109 253 / 0.12);
+  color: var(--tertiary);
+  border: 1px solid rgb(188 109 253 / 0.2);
+}
+
+/* ── Featured Card ────────────────────────────────────────────────────────── */
+
+.mg-card--featured {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.2rem;
+  border: 1px solid rgb(16 157 209 / 0.2);
+  background: rgb(16 29 40 / 0.55);
+  padding: 1.75rem;
+  display: grid;
+  gap: 1.25rem;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.3s;
+}
+
+.mg-card--featured:hover {
+  border-color: rgb(16 157 209 / 0.45);
+}
+
+.mg-card-glow {
+  position: absolute;
+  top: -4rem;
+  right: -4rem;
+  width: 18rem;
+  height: 18rem;
+  background: radial-gradient(circle, rgb(16 157 209 / 0.14) 0%, transparent 70%);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.mg-card-featured-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.mg-card-title {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--on-surface);
+}
+
+.mg-card-title--lg {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.mg-card-featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-shrink: 0;
+}
+
+.mg-card-stat {
+  text-align: right;
+}
+
+.mg-card-stat-label {
+  display: block;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--on-surface-variant);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.mg-card-stat-value {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: var(--on-surface);
+  line-height: 1;
+}
+
+.mg-card-featured-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  border-top: 1px solid rgb(136 146 154 / 0.12);
+  padding-top: 1rem;
+}
+
+.mg-footer-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--on-surface-variant);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+.mg-footer-icon {
+  color: var(--primary);
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-size: 1rem;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+
+/* Live badge */
+.mg-live-badge {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--primary);
+}
+
+.mg-live-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: var(--primary);
+  box-shadow: 0 0 10px rgb(16 157 209 / 0.9);
+  animation: mg-pulse 2s infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.mg-live-dot--sm {
+  width: 0.45rem;
+  height: 0.45rem;
+}
+
+@keyframes mg-pulse {
+  0%, 100% { transform: scale(0.95); opacity: 0.7; }
+  50%       { transform: scale(1.25); opacity: 1; }
+}
+
+/* ── Standard Cards ───────────────────────────────────────────────────────── */
+
+.mg-card--standard {
+  border-radius: 1.1rem;
+  border: 1px solid rgb(136 146 154 / 0.15);
+  background: var(--surface-container-high);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.mg-card--standard:hover {
+  transform: translateY(-3px);
+}
+
+.mg-card--creative {
+  border-color: rgb(188 109 253 / 0.2);
+  background: rgb(16 29 40 / 0.5);
+}
+
+.mg-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+}
+
+.mg-card-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mg-card-icon .material-symbol {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-size: 1.3rem;
+}
+
+.mg-card-icon--competitive {
+  background: rgb(16 157 209 / 0.15);
+  color: var(--primary);
+}
+.mg-card-icon--academy {
+  background: rgb(136 146 154 / 0.12);
+  color: var(--on-surface-variant);
+}
+.mg-card-icon--community {
+  background: rgb(255 165 0 / 0.1);
+  color: var(--secondary);
+}
+.mg-card-icon--creative {
+  background: rgb(188 109 253 / 0.12);
+  color: var(--tertiary);
+}
+
+.mg-card-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--on-surface-variant);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.mg-card-schedule {
+  margin: 0;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--outline);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+.mg-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-top: 1px solid rgb(136 146 154 / 0.12);
+  padding-top: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.mg-card-members {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: var(--primary);
+}
+
+.mg-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px solid rgb(136 146 154 / 0.25);
+  border-radius: 9999px;
+  background: rgb(37 52 67 / 0.3);
+  color: var(--on-surface);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.mg-action-btn:hover {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+}
+
+/* ── Icon Button ──────────────────────────────────────────────────────────── */
+
+.mg-icon-btn {
+  border: 1px solid rgb(136 146 154 / 0.2);
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 9999px;
+  background: rgb(37 52 67 / 0.2);
+  color: var(--on-surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.mg-icon-btn:hover {
+  background: var(--primary);
+  color: var(--on-primary);
+  transform: rotate(12deg);
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────────────────── */
+
+.mg-sidebar {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.mg-sidebar-enrollment {
+  border-radius: 1rem;
+  border: 1px solid rgb(136 146 154 / 0.15);
+  background: rgb(16 29 40 / 0.5);
+  padding: 1.25rem;
+}
+
+.mg-sidebar-enroll-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.mg-sidebar-enroll-num {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.mg-enroll-big {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--on-surface);
+}
+
+.mg-enroll-growth {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.35rem;
+}
+
+.mg-sidebar-activity {
+  border-radius: 1rem;
+  border: 1px solid rgb(136 146 154 / 0.15);
+  background: rgb(16 29 40 / 0.5);
+  padding: 1.25rem;
+}
+
+.mg-sidebar-section-title {
+  margin: 0 0 1rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 800;
+  color: var(--on-surface-variant);
+}
+
+.mg-activity-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+.mg-activity-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.mg-activity-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  margin-top: 0.3rem;
+}
+
+.mg-activity-dot--primary  { background: var(--primary); box-shadow: 0 0 8px rgb(16 157 209 / 0.7); }
+.mg-activity-dot--secondary { background: var(--secondary); }
+.mg-activity-dot--tertiary  { background: var(--tertiary); }
+
+.mg-activity-text {
+  margin: 0;
+  font-size: 0.78rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.mg-activity-time {
+  margin: 0.2rem 0 0;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--outline);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.mg-sidebar-actions {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.mg-outline-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 1px solid var(--primary);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--primary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.mg-outline-btn:hover {
+  background: rgb(16 157 209 / 0.08);
+}
+
+.mg-danger-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: none;
+  border-radius: 9999px;
+  background: rgb(220 50 50 / 0.1);
+  color: #ff6b6b;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.mg-danger-btn:hover {
+  background: rgb(220 50 50 / 0.2);
+}
+
+/* ── Modal ────────────────────────────────────────────────────────────────── */
+
+.mg-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgb(0 0 0 / 0.65);
+  backdrop-filter: blur(4px);
+}
+
+dialog.mg-modal {
+  position: fixed;
+  z-index: 101;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 560px;
+  margin: 0;
+  border-radius: 1.2rem;
+  border: 1px solid rgb(136 146 154 / 0.2);
+  background: var(--surface-container-low);
+  padding: 1.75rem;
+  display: grid;
+  gap: 1.25rem;
+  color: var(--on-surface);
+}
+
+.mg-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mg-modal-header h3 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.mg-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.mg-modal-footer .mg-outline-btn {
+  width: auto;
+}
+
+.mg-modal-footer .admin-primary-btn {
+  padding: 0.75rem 1.5rem;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+
+@media (min-width: 768px) {
+  .mg-page-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+@media (min-width: 1100px) {
+  .mg-content {
+    grid-template-columns: 1fr 280px;
+    align-items: start;
+  }
+}
