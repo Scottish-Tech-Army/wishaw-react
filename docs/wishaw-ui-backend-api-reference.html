@@ -1,0 +1,1427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wishaw UI Backend API Reference</title>
+  <style>
+    :root {
+      --bg: #f4efe7;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #52606d;
+      --line: #d9d2c3;
+      --accent: #0f766e;
+      --accent-soft: #d9f2ef;
+      --head: #f7f1e6;
+      --get: #14532d;
+      --post: #9a3412;
+      --put: #1d4ed8;
+      --delete: #7c2d12;
+      --mono: "Consolas", "Cascadia Mono", "Courier New", monospace;
+      --sans: "Segoe UI", "Trebuchet MS", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #f7efe0 0%, var(--bg) 58%, #efe5d4 100%);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.45;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 28px 64px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #123b3a 0%, #0f766e 52%, #c96b2c 100%);
+      color: #fff;
+      border-radius: 24px;
+      padding: 28px 30px;
+      box-shadow: 0 24px 60px rgba(18, 59, 58, 0.22);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 860px;
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+
+    .hero-card strong {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 6px;
+    }
+
+    section {
+      background: var(--paper);
+      border: 1px solid rgba(15, 118, 110, 0.08);
+      border-radius: 20px;
+      padding: 22px 22px 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 12px 30px rgba(31, 41, 51, 0.06);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.15;
+    }
+
+    h3 {
+      margin: 22px 0 10px;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    p,
+    li {
+      font-size: 14px;
+    }
+
+    ul {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .chip,
+    .method {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .chip {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-color: rgba(15, 118, 110, 0.18);
+    }
+
+    .method.get {
+      color: var(--get);
+      background: #dcfce7;
+      border-color: #86efac;
+    }
+
+    .method.post {
+      color: var(--post);
+      background: #ffedd5;
+      border-color: #fdba74;
+    }
+
+    .method.put {
+      color: var(--put);
+      background: #dbeafe;
+      border-color: #93c5fd;
+    }
+
+    .method.delete {
+      color: var(--delete);
+      background: #fee2e2;
+      border-color: #fca5a5;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 10px 9px;
+      vertical-align: top;
+      text-align: left;
+      word-break: break-word;
+    }
+
+    th {
+      background: var(--head);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    code,
+    pre {
+      font-family: var(--mono);
+    }
+
+    code {
+      font-size: 11px;
+      background: #f3f4f6;
+      padding: 2px 5px;
+      border-radius: 5px;
+    }
+
+    pre {
+      background: #111827;
+      color: #f9fafb;
+      border-radius: 14px;
+      padding: 14px;
+      overflow-x: auto;
+      font-size: 11px;
+      line-height: 1.5;
+      margin: 10px 0 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .small {
+      font-size: 12px;
+    }
+
+    .callout {
+      border-left: 5px solid var(--accent);
+      background: #eef9f7;
+      padding: 12px 14px;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+
+    .warning {
+      border-left-color: #c96b2c;
+      background: #fff4e8;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      .hero,
+      section {
+        box-shadow: none;
+        border: 1px solid #d7d7d7;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <h1>Wishaw UI Backend API Reference</h1>
+      <p>
+        UI-facing API contract generated from the implemented backend controllers, DTOs, Spring Security rules,
+        and the React service layer. All example paths use <code>/api</code> because the UI defaults to that base.
+        The backend also exposes the same routes under <code>/api/v1</code>.
+      </p>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <strong>Generated</strong>
+          <span>March 30, 2026</span>
+        </div>
+        <div class="hero-card">
+          <strong>Canonical Base URL</strong>
+          <span><code>VITE_API_BASE_URL=/api</code></span>
+        </div>
+        <div class="hero-card">
+          <strong>UI Mock Switch</strong>
+          <span><code>VITE_USE_MOCKS=false</code></span>
+        </div>
+        <div class="hero-card">
+          <strong>Auth Model</strong>
+          <span>Bearer access token + refresh token</span>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Integration Rules</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Headers and Authentication</h3>
+          <ul>
+            <li>Send <code>Authorization: Bearer &lt;accessToken&gt;</code> on every authenticated request.</li>
+            <li>Use <code>Content-Type: application/json</code> for all write endpoints except photo upload.</li>
+            <li>Photo upload uses <code>multipart/form-data</code> with a single file part named <code>photo</code>.</li>
+            <li>The backend exposes <code>X-Correlation-Id</code> in responses for tracing.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Refresh and Error Handling</h3>
+          <ul>
+            <li>If an authenticated call returns <code>401</code> with <code>code: "TOKEN_EXPIRED"</code>, post the refresh token to <code>/api/auth/refresh</code> and retry once.</li>
+            <li>All backend errors use the same JSON envelope shown below.</li>
+            <li>The React client already expects <code>error</code> text from the HTTP body when present and falls back to <code>HTTP {status}</code>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="chips">
+        <span class="chip">Canonical UI base: /api</span>
+        <span class="chip">Versioned alias: /api/v1</span>
+        <span class="chip">Public only: login, register, refresh</span>
+        <span class="chip">Admin-only writes called out below</span>
+      </div>
+      <h3>Standard Error Envelope</h3>
+      <pre>{
+  "timestamp": "2026-03-30T10:15:00Z",
+  "status": 401,
+  "error": "Authentication required",
+  "code": "TOKEN_EXPIRED",
+  "path": "/api/modules",
+  "correlationId": "8d1d5600-5f92-4f8b-8f1b-1a3a933f0e3c",
+  "fieldErrors": {}
+}</pre>
+    </section>
+
+    <section>
+      <h2>Endpoint Matrix</h2>
+      <p class="small muted">
+        The "UI Method" column maps directly to the methods in the React API client. Request and response schema names are detailed later in this document.
+      </p>
+
+      <h3>Auth and Session</h3>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 13%;">UI Method</th>
+            <th style="width: 7%;">Method</th>
+            <th style="width: 20%;">Path</th>
+            <th style="width: 12%;">Auth</th>
+            <th style="width: 18%;">Request</th>
+            <th style="width: 15%;">Response</th>
+            <th style="width: 15%;">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>realApi.login</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/auth/login</code></td>
+            <td>Public</td>
+            <td><code>LoginRequest</code></td>
+            <td><code>AuthResponseDto</code></td>
+            <td>Returns access token, refresh token, user, and profile in one response.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.register</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/auth/register</code></td>
+            <td>Public</td>
+            <td><code>RegisterRequest</code></td>
+            <td><code>AuthResponseDto</code></td>
+            <td>Creates a player account by default.</td>
+          </tr>
+          <tr>
+            <td><code>internal refresh</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/auth/refresh</code></td>
+            <td>Public</td>
+            <td><code>RefreshTokenRequest</code></td>
+            <td><code>RefreshTokenResponse</code></td>
+            <td>Called automatically by the UI after <code>TOKEN_EXPIRED</code>.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.logout</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/auth/logout</code></td>
+            <td>Token recommended</td>
+            <td><code>none</code></td>
+            <td><code>{ success: true }</code></td>
+            <td>Current backend path is public in security config, but the UI should still treat it as a session call.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getMe</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/auth/me</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code></td>
+            <td><code>SessionDto</code></td>
+            <td>Used during app bootstrap to restore session state.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Profile</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>UI Method</th>
+            <th>Method</th>
+            <th>Path</th>
+            <th>Auth</th>
+            <th>Request</th>
+            <th>Response</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>realApi.getProfile</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/profile</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code></td>
+            <td><code>ProfileDto</code></td>
+            <td>Returns only the current user profile.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.updateProfile</code></td>
+            <td><span class="method put">PUT</span></td>
+            <td><code>/api/profile</code></td>
+            <td>Bearer token</td>
+            <td><code>ProfileDto</code></td>
+            <td><code>ProfileDto</code></td>
+            <td>Backend overwrites mutable profile fields from the supplied body.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.uploadPhoto</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/profile/photo</code></td>
+            <td>Bearer token</td>
+            <td><code>multipart/form-data</code> with part <code>photo</code></td>
+            <td><code>{ photoUrl: string }</code></td>
+            <td>Current implementation synthesizes a data-URI avatar rather than storing the binary file.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.setOverlay</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/profile/photo/overlay</code></td>
+            <td>Bearer token</td>
+            <td><code>OverlayRequest</code></td>
+            <td><code>{ overlayTemplate: string }</code></td>
+            <td>Empty or null template is normalized to an empty string in the response.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Catalogue, Modules, Badges, Centres</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>UI Method</th>
+            <th>Method</th>
+            <th>Path</th>
+            <th>Auth</th>
+            <th>Request</th>
+            <th>Response</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>realApi.getCentres</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/centres</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code></td>
+            <td><code>CentreDto[]</code></td>
+            <td>Centre catalogue for registration and filtering.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getGroups</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/groups?centreId={centreId}</code></td>
+            <td>Bearer token</td>
+            <td><code>centreId</code> query optional</td>
+            <td><code>GroupDto[]</code></td>
+            <td>If <code>centreId</code> is omitted, all groups are returned.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getMainBadges</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/badges/main</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code></td>
+            <td><code>MainBadgeDto[]</code></td>
+            <td>Main badge catalogue.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getSubBadges</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/badges/sub?moduleId={moduleId}</code></td>
+            <td>Bearer token</td>
+            <td><code>moduleId</code> query optional</td>
+            <td><code>SubBadgeDto[]</code></td>
+            <td>Use the query to narrow sub-badges to one module.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getUserBadgeProgress</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/badges/progress/{userId}</code></td>
+            <td>Bearer token</td>
+            <td><code>userId</code> path</td>
+            <td><code>UserBadgeProgressDto[]</code></td>
+            <td>Returns progress bucketed by main badge.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.awardSubBadge</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/badges/award</code></td>
+            <td>Admin or super admin</td>
+            <td><code>BadgeAwardRequest</code></td>
+            <td><code>{ success: true }</code></td>
+            <td>Awards one sub-badge to one user.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getModules</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/modules</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code></td>
+            <td><code>ModuleDto[]</code></td>
+            <td>Includes sub-badges and weekly schedule entries.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getModule</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/modules/{id}</code></td>
+            <td>Bearer token</td>
+            <td><code>id</code> path</td>
+            <td><code>ModuleDto</code></td>
+            <td>Module detail endpoint used by module detail screens.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Sports and Tournaments</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>UI Method</th>
+            <th>Method</th>
+            <th>Path</th>
+            <th>Auth</th>
+            <th>Request</th>
+            <th>Response</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>realApi.getSports</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/sports</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code></td>
+            <td><code>SportDto[]</code></td>
+            <td>Read is open to any authenticated user.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.createSport</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/sports</code></td>
+            <td>Admin or super admin</td>
+            <td><code>SportUpsertRequest</code></td>
+            <td><code>SportDto</code></td>
+            <td>Admin management endpoint.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.updateSport</code></td>
+            <td><span class="method put">PUT</span></td>
+            <td><code>/api/sports/{id}</code></td>
+            <td>Admin or super admin</td>
+            <td><code>SportUpsertRequest</code></td>
+            <td><code>SportDto</code></td>
+            <td>Admin management endpoint.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.deleteSport</code></td>
+            <td><span class="method delete">DELETE</span></td>
+            <td><code>/api/sports/{id}</code></td>
+            <td>Admin or super admin</td>
+            <td><code>none</code></td>
+            <td><code>{ success: true }</code></td>
+            <td>Deletes by sport id.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getTournaments</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/tournaments</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code> in backend</td>
+            <td><code>TournamentListResponse</code></td>
+            <td>The React client can send query filters, but the current backend ignores them.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getTournament</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/tournaments/{id}</code></td>
+            <td>Bearer token</td>
+            <td><code>id</code> path</td>
+            <td><code>TournamentDto</code></td>
+            <td>Tournament detail endpoint.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.createTournament</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/tournaments</code></td>
+            <td>Admin or super admin</td>
+            <td><code>TournamentUpsertRequest</code></td>
+            <td><code>TournamentDto</code></td>
+            <td><code>sportId</code> is mandatory. Missing enum fields default to <code>INDIVIDUAL</code>, <code>DRAFT</code>, and points <code>3/1/0</code>.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.updateTournament</code></td>
+            <td><span class="method put">PUT</span></td>
+            <td><code>/api/tournaments/{id}</code></td>
+            <td>Admin or super admin</td>
+            <td><code>TournamentUpsertRequest</code></td>
+            <td><code>TournamentDto</code></td>
+            <td>Same payload as create.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.publishTournament</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/tournaments/{id}/publish</code></td>
+            <td>Admin or super admin</td>
+            <td><code>none</code></td>
+            <td><code>TournamentDto</code></td>
+            <td>Sets status to <code>PUBLISHED</code>.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.cancelTournament</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/tournaments/{id}/cancel</code></td>
+            <td>Admin or super admin</td>
+            <td><code>none</code></td>
+            <td><code>TournamentDto</code></td>
+            <td>Sets status to <code>CANCELLED</code>.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.completeTournament</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/tournaments/{id}/complete</code></td>
+            <td>Admin or super admin</td>
+            <td><code>none</code></td>
+            <td><code>TournamentDto</code></td>
+            <td>Sets status to <code>COMPLETED</code>.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.joinTournament</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/tournaments/{id}/join</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code></td>
+            <td><code>{ success: true }</code></td>
+            <td>Idempotent. If already joined, backend still returns success.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.leaveTournament</code></td>
+            <td><span class="method delete">DELETE</span></td>
+            <td><code>/api/tournaments/{id}/leave</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code></td>
+            <td><code>{ success: true }</code></td>
+            <td>Changes participant status to <code>WITHDRAWN</code>.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getParticipants</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/tournaments/{id}/participants</code></td>
+            <td>Bearer token</td>
+            <td><code>id</code> path</td>
+            <td><code>ParticipantDto[]</code></td>
+            <td>Ordered by repository id ascending.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Matches and Teams</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>UI Method</th>
+            <th>Method</th>
+            <th>Path</th>
+            <th>Auth</th>
+            <th>Request</th>
+            <th>Response</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>realApi.getMatches</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/matches/tournament/{id}</code></td>
+            <td>Bearer token</td>
+            <td><code>id</code> path</td>
+            <td><code>MatchDto[]</code></td>
+            <td>Fetches all matches for one tournament.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getMatch</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/matches/{id}</code></td>
+            <td>Bearer token</td>
+            <td><code>id</code> path</td>
+            <td><code>MatchDto</code></td>
+            <td>Single match detail.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.createMatch</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/matches</code></td>
+            <td>Admin or super admin</td>
+            <td><code>MatchUpsertRequest</code></td>
+            <td><code>MatchDto</code></td>
+            <td>Participant list is recreated from the request body.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.updateMatch</code></td>
+            <td><span class="method put">PUT</span></td>
+            <td><code>/api/matches/{id}</code></td>
+            <td>Admin or super admin</td>
+            <td><code>MatchUpsertRequest</code></td>
+            <td><code>MatchDto</code></td>
+            <td>Same payload as create.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.submitScore</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/matches/{id}/score</code></td>
+            <td>Admin or super admin</td>
+            <td><code>ScoreSubmissionRequest</code></td>
+            <td><code>{ success: true }</code></td>
+            <td>Also forces the match status to <code>COMPLETED</code>.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getScore</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/matches/{id}/score</code></td>
+            <td>Bearer token</td>
+            <td><code>id</code> path</td>
+            <td><code>MatchScoreDto</code></td>
+            <td>Used by match detail pages to read score data.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getScoreAudit</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/matches/{id}/score/audit</code></td>
+            <td>Bearer token</td>
+            <td><code>id</code> path</td>
+            <td><code>Array&lt;{ action, summary, at }&gt;</code></td>
+            <td>Currently emits one synthetic audit entry when a score exists.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.markAttendance</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/matches/{id}/attendance</code></td>
+            <td>Admin or super admin</td>
+            <td><code>AttendanceRequest</code></td>
+            <td><code>{ success: true }</code></td>
+            <td>Attendance values must match the enum exactly.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getTeams</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/teams/tournament/{id}</code></td>
+            <td>Bearer token</td>
+            <td><code>id</code> path</td>
+            <td><code>TeamDto[]</code></td>
+            <td>Only teams for the requested tournament are returned.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.createTeam</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/teams</code></td>
+            <td>Bearer token</td>
+            <td><code>TeamCreateRequest</code></td>
+            <td><code>TeamDto</code></td>
+            <td>Current response starts with an empty <code>members</code> array.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Leaderboard, Calories, and Stats</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>UI Method</th>
+            <th>Method</th>
+            <th>Path</th>
+            <th>Auth</th>
+            <th>Request</th>
+            <th>Response</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>realApi.getLeaderboard</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/leaderboard/tournament/{id}</code></td>
+            <td>Bearer token</td>
+            <td><code>id</code> path</td>
+            <td><code>LeaderboardEntryDto[]</code></td>
+            <td>Tournament-specific ranking.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getGlobalLeaderboard</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/leaderboard/global</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code></td>
+            <td><code>LeaderboardEntryDto[]</code></td>
+            <td>Cross-tournament leaderboard.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getBadges</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/leaderboard/badges</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code></td>
+            <td><code>LtcBadgeDto[]</code></td>
+            <td>Separate from the main/sub-badge learning catalogue.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.createBadge</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/leaderboard/badges</code></td>
+            <td>Admin or super admin</td>
+            <td><code>CreateBadgeRequest</code></td>
+            <td><code>LtcBadgeDto</code></td>
+            <td>Admin-managed leaderboard badge creation.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.assignBadge</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/leaderboard/badges/assign</code></td>
+            <td>Bearer token</td>
+            <td><code>BadgeAssignRequest</code></td>
+            <td><code>{ success: true }</code></td>
+            <td>Not admin-gated in the current backend security rules.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getUserBadges</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/leaderboard/badges/user/{userId}</code></td>
+            <td>Bearer token</td>
+            <td><code>userId</code> path</td>
+            <td><code>EarnedBadgeDto[]</code></td>
+            <td>Leaderboard-earned badges for one user.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.logCalories</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/leaderboard/calories</code></td>
+            <td>Bearer token</td>
+            <td><code>CaloriesLogRequest</code></td>
+            <td><code>{ success: true }</code></td>
+            <td>If <code>userId</code> is blank or null, the backend uses the current user.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getUserCalories</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/leaderboard/calories/user/{userId}</code></td>
+            <td>Bearer token</td>
+            <td><code>userId</code> path</td>
+            <td><code>CaloriesSummaryDto</code></td>
+            <td>Aggregated total plus per-sport breakdown.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getPlayerStats</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/stats/player/{userId}</code></td>
+            <td>Bearer token</td>
+            <td><code>userId</code> path</td>
+            <td><code>PlayerStatsDto</code></td>
+            <td>Player analytics and recent participation summary.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getAdminDashboard</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/stats/admin/dashboard</code></td>
+            <td>Admin or super admin</td>
+            <td><code>none</code></td>
+            <td><code>AdminDashboardDto</code></td>
+            <td>Admin dashboard aggregate metrics.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Notifications and Sharing</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>UI Method</th>
+            <th>Method</th>
+            <th>Path</th>
+            <th>Auth</th>
+            <th>Request</th>
+            <th>Response</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>realApi.getNotifications</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/notifications</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code></td>
+            <td><code>NotificationListResponse</code></td>
+            <td>Returns notifications plus <code>unreadCount</code>.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.markNotificationRead</code></td>
+            <td><span class="method put">PUT</span></td>
+            <td><code>/api/notifications/{id}/read</code></td>
+            <td>Bearer token</td>
+            <td><code>id</code> path</td>
+            <td><code>{ success: true }</code></td>
+            <td>Only the owner can mark a notification as read.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.markAllNotificationsRead</code></td>
+            <td><span class="method put">PUT</span></td>
+            <td><code>/api/notifications/read-all</code></td>
+            <td>Bearer token</td>
+            <td><code>none</code></td>
+            <td><code>{ success: true }</code></td>
+            <td>Marks all notifications for the current user as read.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.createAnnouncement</code></td>
+            <td><span class="method post">POST</span></td>
+            <td><code>/api/notifications/announcements</code></td>
+            <td>Bearer token</td>
+            <td><code>AnnouncementRequest</code></td>
+            <td><code>{ success: true }</code></td>
+            <td>Currently not admin-gated in security. Sends one announcement record to every user.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getAnnouncements</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/notifications/announcements/tournament/{id}</code></td>
+            <td>Bearer token</td>
+            <td><code>id</code> path</td>
+            <td><code>AnnouncementDto[]</code></td>
+            <td>Filtered to announcements linked to the tournament.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getShareData</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/notifications/share/{type}/{id}</code></td>
+            <td>Bearer token</td>
+            <td><code>type</code>, <code>id</code> path</td>
+            <td><code>ShareDataDto</code></td>
+            <td>Special handling exists only for <code>type=tournament</code>; any other type falls back to a generic home-page share payload.</td>
+          </tr>
+          <tr>
+            <td><code>realApi.getGallery</code></td>
+            <td><span class="method get">GET</span></td>
+            <td><code>/api/notifications/gallery/tournament/{id}</code></td>
+            <td>Bearer token</td>
+            <td><code>id</code> path</td>
+            <td><code>[]</code></td>
+            <td>Current backend implementation validates the tournament id and returns an empty array.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="page-break">
+      <h2>Request Payload Examples</h2>
+      <p class="small muted">
+        These are the JSON bodies the UI should send. Omit <code>Content-Type: application/json</code> only for the photo upload endpoint.
+      </p>
+
+      <h3>LoginRequest</h3>
+      <pre>{
+  "email": "player1@wishaw.local",
+  "password": "Password123!"
+}</pre>
+
+      <h3>RegisterRequest</h3>
+      <pre>{
+  "email": "new.player@wishaw.local",
+  "password": "Password123!",
+  "displayName": "New Player",
+  "firstName": "New",
+  "lastName": "Player"
+}</pre>
+
+      <h3>RefreshTokenRequest</h3>
+      <pre>{
+  "refreshToken": "eyJhbGciOiJIUzI1NiJ9.refresh-token"
+}</pre>
+
+      <h3>ProfileDto</h3>
+      <pre>{
+  "displayName": "Ava Singh",
+  "firstName": "Ava",
+  "lastName": "Singh",
+  "bio": "Rocket League striker and mentor.",
+  "photoUrl": "data:image/svg+xml;base64,...",
+  "overlayTemplate": "winner-frame",
+  "privacy": {
+    "showInPublicList": true,
+    "allowSocialSharing": true
+  }
+}</pre>
+
+      <h3>OverlayRequest</h3>
+      <pre>{
+  "template": "winner-frame"
+}</pre>
+
+      <h3>BadgeAwardRequest</h3>
+      <pre>{
+  "userId": "u1",
+  "subBadgeId": "sb7"
+}</pre>
+
+      <h3>SportUpsertRequest</h3>
+      <pre>{
+  "name": "Rocket League",
+  "icon": "gamepad-2",
+  "description": "Team-based football with cars.",
+  "scoreFields": [
+    { "key": "homeGoals", "label": "Home goals", "type": "number" },
+    { "key": "awayGoals", "label": "Away goals", "type": "number" }
+  ],
+  "rankingPoints": {
+    "win": 3,
+    "draw": 1,
+    "loss": 0
+  }
+}</pre>
+
+      <h3>TournamentUpsertRequest</h3>
+      <pre>{
+  "name": "Spring Split Finals",
+  "sportId": "s1",
+  "description": "Centre-wide Rocket League finals.",
+  "rules": "Best of three, standard ranked settings.",
+  "venue": "Wishaw YMCA Arena",
+  "type": "TEAM",
+  "status": "DRAFT",
+  "startDate": "2026-04-20T18:00:00Z",
+  "endDate": "2026-04-20T21:00:00Z",
+  "regStartDate": "2026-04-01T09:00:00Z",
+  "regEndDate": "2026-04-18T23:59:59Z",
+  "capacity": 16,
+  "teamMinSize": 3,
+  "teamMaxSize": 5,
+  "pointsWin": 3,
+  "pointsDraw": 1,
+  "pointsLoss": 0
+}</pre>
+
+      <h3>MatchUpsertRequest</h3>
+      <pre>{
+  "tournamentId": "t1",
+  "roundLabel": "Semi Final 1",
+  "scheduledAt": "2026-04-20T18:30:00Z",
+  "venue": "Stage A",
+  "status": "SCHEDULED",
+  "participants": [
+    { "userId": "u1", "displayName": "Ava Singh", "attendance": "PRESENT" },
+    { "userId": "u2", "displayName": "Noah Brown", "attendance": "PRESENT" }
+  ]
+}</pre>
+
+      <h3>ScoreSubmissionRequest</h3>
+      <pre>{
+  "winnerId": "u1",
+  "fields": {
+    "home": { "goals": 3 },
+    "away": { "goals": 1 }
+  },
+  "summary": "Ava Singh wins 3-1"
+}</pre>
+
+      <h3>AttendanceRequest</h3>
+      <pre>{
+  "records": [
+    { "userId": "u1", "attendance": "PRESENT" },
+    { "userId": "u2", "attendance": "LATE" }
+  ]
+}</pre>
+
+      <h3>TeamCreateRequest</h3>
+      <pre>{
+  "name": "Wishaw Wolves",
+  "tournamentId": "t1"
+}</pre>
+
+      <h3>CreateBadgeRequest</h3>
+      <pre>{
+  "name": "Fair Play",
+  "icon": "shield-check",
+  "description": "Awarded for consistent good sportsmanship."
+}</pre>
+
+      <h3>BadgeAssignRequest</h3>
+      <pre>{
+  "badgeId": "lb1",
+  "userId": "u1"
+}</pre>
+
+      <h3>CaloriesLogRequest</h3>
+      <pre>{
+  "userId": "u1",
+  "sportName": "Rocket League",
+  "calories": 160
+}</pre>
+
+      <h3>AnnouncementRequest</h3>
+      <pre>{
+  "title": "Bracket published",
+  "message": "Semi-final fixtures are now live.",
+  "tournamentId": "t1"
+}</pre>
+    </section>
+
+    <section>
+      <h2>Response Payload Samples</h2>
+
+      <h3>AuthResponseDto</h3>
+      <pre>{
+  "accessToken": "eyJhbGciOiJIUzI1NiJ9.access-token",
+  "refreshToken": "eyJhbGciOiJIUzI1NiJ9.refresh-token",
+  "user": {
+    "id": "u1",
+    "email": "player1@wishaw.local",
+    "role": "PLAYER",
+    "centreId": "c1"
+  },
+  "profile": {
+    "displayName": "Ava Singh",
+    "firstName": "Ava",
+    "lastName": "Singh",
+    "bio": "Rocket League striker and mentor.",
+    "photoUrl": "data:image/svg+xml;base64,...",
+    "overlayTemplate": "winner-frame",
+    "privacy": {
+      "showInPublicList": true,
+      "allowSocialSharing": true
+    }
+  }
+}</pre>
+
+      <h3>SessionDto</h3>
+      <pre>{
+  "user": {
+    "id": "u1",
+    "email": "player1@wishaw.local",
+    "role": "PLAYER",
+    "centreId": "c1"
+  },
+  "profile": {
+    "displayName": "Ava Singh",
+    "firstName": "Ava",
+    "lastName": "Singh",
+    "bio": "Rocket League striker and mentor.",
+    "photoUrl": "data:image/svg+xml;base64,...",
+    "overlayTemplate": "winner-frame",
+    "privacy": {
+      "showInPublicList": true,
+      "allowSocialSharing": true
+    }
+  }
+}</pre>
+
+      <h3>ModuleDto</h3>
+      <pre>{
+  "id": "m1",
+  "name": "Rocket League Fundamentals",
+  "game": "Rocket League",
+  "description": "Introductory module covering teamwork and rotations.",
+  "durationWeeks": 6,
+  "subBadges": [
+    {
+      "id": "sb1",
+      "name": "Positioning Basics",
+      "description": "Understand core positioning.",
+      "mainBadgeId": "mb1",
+      "mainBadgeName": "Game Mastery",
+      "points": 10,
+      "skills": ["Positioning", "Decision-making"],
+      "moduleId": "m1"
+    }
+  ],
+  "schedule": [
+    {
+      "weekNo": 1,
+      "focus": "Kickoff strategy",
+      "subBadgeId": "sb1",
+      "sessionPlanUrl": "/plans/m1-week1.pdf",
+      "slidesUrl": "/slides/m1-week1.pdf"
+    }
+  ],
+  "status": "ACTIVE"
+}</pre>
+
+      <h3>SportDto</h3>
+      <pre>{
+  "id": "s1",
+  "name": "Rocket League",
+  "icon": "gamepad-2",
+  "description": "Team-based football with cars.",
+  "scoreFields": [
+    { "key": "homeGoals", "label": "Home goals", "type": "number" },
+    { "key": "awayGoals", "label": "Away goals", "type": "number" }
+  ],
+  "rankingPoints": {
+    "win": 3,
+    "draw": 1,
+    "loss": 0
+  }
+}</pre>
+
+      <h3>TournamentListResponse</h3>
+      <pre>{
+  "tournaments": [
+    {
+      "id": "t1",
+      "name": "Spring Split Finals",
+      "sportId": "s1",
+      "sport": {
+        "id": "s1",
+        "name": "Rocket League",
+        "icon": "gamepad-2",
+        "description": "Team-based football with cars.",
+        "scoreFields": [
+          { "key": "homeGoals", "label": "Home goals", "type": "number" }
+        ],
+        "rankingPoints": { "win": 3, "draw": 1, "loss": 0 }
+      },
+      "description": "Centre-wide Rocket League finals.",
+      "rules": "Best of three",
+      "venue": "Wishaw YMCA Arena",
+      "type": "TEAM",
+      "status": "PUBLISHED",
+      "startDate": "2026-04-20T18:00:00Z",
+      "endDate": "2026-04-20T21:00:00Z",
+      "regStartDate": "2026-04-01T09:00:00Z",
+      "regEndDate": "2026-04-18T23:59:59Z",
+      "capacity": 16,
+      "participantCount": 8,
+      "teamMinSize": 3,
+      "teamMaxSize": 5,
+      "pointsWin": 3,
+      "pointsDraw": 1,
+      "pointsLoss": 0
+    }
+  ],
+  "total": 1
+}</pre>
+
+      <h3>MatchDto</h3>
+      <pre>{
+  "id": "match1",
+  "tournamentId": "t1",
+  "roundLabel": "Semi Final 1",
+  "scheduledAt": "2026-04-20T18:30:00Z",
+  "venue": "Stage A",
+  "status": "COMPLETED",
+  "participants": [
+    { "userId": "u1", "displayName": "Ava Singh", "attendance": "PRESENT" },
+    { "userId": "u2", "displayName": "Noah Brown", "attendance": "PRESENT" }
+  ],
+  "score": {
+    "winnerId": "u1",
+    "fields": {
+      "home": { "goals": 3 },
+      "away": { "goals": 1 }
+    },
+    "summary": "Ava Singh wins 3-1"
+  }
+}</pre>
+
+      <h3>LeaderboardEntryDto</h3>
+      <pre>{
+  "userId": "u1",
+  "displayName": "Ava Singh",
+  "centreId": "c1",
+  "centreName": "Wishaw YMCA",
+  "totalPoints": 75,
+  "badgeLevels": {
+    "Game Mastery": "Silver",
+    "Teamwork": "Bronze"
+  },
+  "completedModules": 2
+}</pre>
+
+      <h3>PlayerStatsDto</h3>
+      <pre>{
+  "tournamentsJoined": 4,
+  "activeTournaments": 1,
+  "completedTournaments": 3,
+  "matchesPlayed": 12,
+  "wins": 8,
+  "losses": 3,
+  "draws": 1,
+  "attendanceRate": 92,
+  "badges": [
+    { "id": "lb1", "name": "Fair Play", "icon": "shield-check", "earnedAt": "2026-03-12T10:15:00Z" }
+  ],
+  "tournaments": []
+}</pre>
+
+      <h3>AdminDashboardDto</h3>
+      <pre>{
+  "totalTournaments": 6,
+  "activeTournaments": 2,
+  "totalPlayers": 24,
+  "totalMatches": 18,
+  "registrationsByTournament": [
+    { "name": "Spring Split Finals", "count": 16 }
+  ],
+  "attendanceTrend": [
+    { "date": "2026-03-25", "rate": 89 }
+  ],
+  "topPerformers": [
+    { "displayName": "Ava Singh", "wins": 8 }
+  ],
+  "recentScores": [
+    { "matchLabel": "Semi Final 1", "score": "3-1", "time": "2026-04-20T18:30:00Z" }
+  ]
+}</pre>
+
+      <h3>NotificationListResponse</h3>
+      <pre>{
+  "notifications": [
+    {
+      "id": "n1",
+      "type": "ANNOUNCEMENT",
+      "title": "Bracket published",
+      "message": "Semi-final fixtures are now live.",
+      "isRead": false,
+      "createdAt": "2026-03-30T09:10:00Z",
+      "linkTo": "/tournaments/t1"
+    }
+  ],
+  "unreadCount": 1
+}</pre>
+
+      <h3>ShareDataDto</h3>
+      <pre>{
+  "title": "Spring Split Finals",
+  "description": "Centre-wide Rocket League finals.",
+  "url": "/tournaments/t1"
+}</pre>
+    </section>
+
+    <section>
+      <h2>Enums and Integration Notes</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Enums Used in Payloads</h3>
+          <ul>
+            <li><code>UserRole</code>: <code>PLAYER</code>, <code>ADMIN</code>, <code>SUPER_ADMIN</code></li>
+            <li><code>TournamentStatus</code>: <code>DRAFT</code>, <code>PUBLISHED</code>, <code>CANCELLED</code>, <code>COMPLETED</code></li>
+            <li><code>TournamentType</code>: <code>INDIVIDUAL</code>, <code>TEAM</code></li>
+            <li><code>ParticipantStatus</code>: <code>REGISTERED</code>, <code>WITHDRAWN</code></li>
+            <li><code>AttendanceStatus</code>: <code>PRESENT</code>, <code>ABSENT</code>, <code>LATE</code>, <code>EXCUSED</code></li>
+            <li><code>MatchStatus</code>: <code>SCHEDULED</code>, <code>IN_PROGRESS</code>, <code>COMPLETED</code>, <code>WALKOVER</code></li>
+            <li><code>BadgeLevel</code>: <code>None</code>, <code>Bronze</code>, <code>Silver</code>, <code>Gold</code>, <code>Platinum</code></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Observed Contract Gaps</h3>
+          <ul>
+            <li><code>realApi.getTournaments(filters)</code> can send query params, but the backend currently ignores them.</li>
+            <li><code>getGallery</code> is implemented as a tournament existence check plus an empty array.</li>
+            <li><code>getShareData</code> has special handling only for <code>type=tournament</code>.</li>
+            <li><code>assignBadge</code> and <code>createAnnouncement</code> are authenticated but not admin-gated in the current security config.</li>
+            <li><code>uploadPhoto</code> returns a generated data URI, not a persisted asset URL.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Recommended frontend dev configuration</strong>
+        <div class="small" style="margin-top: 6px;">
+          Use <code>VITE_USE_MOCKS=false</code> and point <code>VITE_API_BASE_URL</code> to <code>http://localhost:8080/api</code> when testing against the Spring Boot service locally.
+        </div>
+      </div>
+      <div class="callout warning">
+        <strong>Versioned routing</strong>
+        <div class="small" style="margin-top: 6px;">
+          If you prefer the versioned contract, replace every <code>/api/...</code> example in this document with <code>/api/v1/...</code>. The backend maps both forms today.
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

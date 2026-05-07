@@ -1,0 +1,48 @@
+{
+  "modules": [
+    {
+      "id": "m1",
+      "name": "Road to Diamond",
+      "game": "Rocket League",
+      "description": "Rank-based challenges, mechanics masterclass, and team building for Rocket League players.",
+      "durationWeeks": 12,
+      "status": "ACTIVE",
+      "schedule": [
+        { "weekNo": 1, "focus": "Welcome/Settle In" },
+        { "weekNo": 2, "focus": "Code of Conduct", "subBadgeId": "sb10" },
+        { "weekNo": 3, "focus": "Player Evaluation", "subBadgeId": "sb1" },
+        { "weekNo": 4, "focus": "Player Evaluation cont.", "subBadgeId": "sb1" },
+        { "weekNo": 5, "focus": "Duo Allocation", "subBadgeId": "sb4" },
+        { "weekNo": 6, "focus": "Team Roles", "subBadgeId": "sb6" },
+        { "weekNo": 7, "focus": "Practice Routines", "subBadgeId": "sb3" },
+        { "weekNo": 8, "focus": "Drop spot & Loot paths", "subBadgeId": "sb2" },
+        { "weekNo": 9, "focus": "Goal Setting", "subBadgeId": "sb8" },
+        { "weekNo": 10, "focus": "Stat tracking", "subBadgeId": "sb13" },
+        { "weekNo": 11, "focus": "Ranked Grind", "subBadgeId": "sb16" },
+        { "weekNo": 12, "focus": "Ranked Grind", "subBadgeId": "sb16" }
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "Defeat the Ender Dragon",
+      "game": "Minecraft",
+      "description": "Survival challenges, build battles, and teamwork to defeat the Ender Dragon.",
+      "durationWeeks": 12,
+      "status": "ACTIVE",
+      "schedule": [
+        { "weekNo": 1, "focus": "Welcome / Team Formation" },
+        { "weekNo": 2, "focus": "Code of Conduct" },
+        { "weekNo": 3, "focus": "Base Building", "subBadgeId": "sb17" },
+        { "weekNo": 4, "focus": "Resource Gathering" },
+        { "weekNo": 5, "focus": "Nether Prep", "subBadgeId": "sb18" },
+        { "weekNo": 6, "focus": "Nether Expedition" },
+        { "weekNo": 7, "focus": "Goal Setting" },
+        { "weekNo": 8, "focus": "End Portal Prep", "subBadgeId": "sb19" },
+        { "weekNo": 9, "focus": "Practice Fights" },
+        { "weekNo": 10, "focus": "Dragon Fight Attempt 1", "subBadgeId": "sb20" },
+        { "weekNo": 11, "focus": "Dragon Fight Attempt 2", "subBadgeId": "sb20" },
+        { "weekNo": 12, "focus": "Celebration & Reflection" }
+      ]
+    }
+  ]
+}

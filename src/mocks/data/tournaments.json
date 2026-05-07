@@ -1,0 +1,97 @@
+{
+  "sports": [
+    {
+      "id": "s1",
+      "name": "Rocket League",
+      "icon": "🚀",
+      "description": "Vehicular soccer video game",
+      "scoreFields": [{ "key": "goals", "label": "Goals", "type": "number" }, { "key": "assists", "label": "Assists", "type": "number" }],
+      "rankingPoints": { "win": 3, "draw": 1, "loss": 0 }
+    },
+    {
+      "id": "s2",
+      "name": "Fortnite",
+      "icon": "🎯",
+      "description": "Battle royale game",
+      "scoreFields": [{ "key": "kills", "label": "Kills", "type": "number" }, { "key": "placement", "label": "Placement", "type": "number" }],
+      "rankingPoints": { "win": 3, "draw": 1, "loss": 0 }
+    },
+    {
+      "id": "s3",
+      "name": "Minecraft",
+      "icon": "⛏️",
+      "description": "Sandbox adventure game",
+      "scoreFields": [{ "key": "objectives", "label": "Objectives Completed", "type": "number" }],
+      "rankingPoints": { "win": 3, "draw": 1, "loss": 0 }
+    }
+  ],
+  "tournaments": [
+    {
+      "id": "t1",
+      "name": "Wishaw Rocket League Cup",
+      "sportId": "s1",
+      "description": "Monthly Rocket League tournament for junior players",
+      "rules": "Best of 3 matches",
+      "venue": "Wishaw YMCA Esports Room 1",
+      "type": "INDIVIDUAL",
+      "status": "PUBLISHED",
+      "startDate": "2026-04-10T10:00:00Z",
+      "endDate": "2026-04-10T16:00:00Z",
+      "regStartDate": "2026-03-20T00:00:00Z",
+      "regEndDate": "2026-04-08T23:59:59Z",
+      "capacity": 16,
+      "participantCount": 8,
+      "pointsWin": 3,
+      "pointsDraw": 1,
+      "pointsLoss": 0
+    },
+    {
+      "id": "t2",
+      "name": "Fortnite Friday Showdown",
+      "sportId": "s2",
+      "description": "Weekly Fortnite competitive night",
+      "venue": "Wishaw YMCA Esports Room 2",
+      "type": "TEAM",
+      "status": "PUBLISHED",
+      "startDate": "2026-04-04T18:00:00Z",
+      "endDate": "2026-04-04T21:00:00Z",
+      "regStartDate": "2026-03-25T00:00:00Z",
+      "regEndDate": "2026-04-03T23:59:59Z",
+      "capacity": 24,
+      "participantCount": 12,
+      "teamMinSize": 2,
+      "teamMaxSize": 4,
+      "pointsWin": 3,
+      "pointsDraw": 1,
+      "pointsLoss": 0
+    }
+  ],
+  "participants": {
+    "t1": [
+      { "id": "p1", "userId": "u2", "displayName": "Player One", "status": "REGISTERED" },
+      { "id": "p2", "userId": "u3", "displayName": "Player Two", "status": "REGISTERED" }
+    ]
+  },
+  "matches": {
+    "t1": [
+      {
+        "id": "match1",
+        "tournamentId": "t1",
+        "roundLabel": "Round 1 - Match 1",
+        "scheduledAt": "2026-04-10T10:30:00Z",
+        "venue": "Wishaw YMCA Esports Room 1",
+        "status": "SCHEDULED",
+        "participants": [
+          { "userId": "u2", "displayName": "Player One" },
+          { "userId": "u3", "displayName": "Player Two" }
+        ]
+      }
+    ]
+  },
+  "leaderboard": {
+    "t1": [
+      { "userId": "u2", "displayName": "Player One", "centreId": "c1", "centreName": "Wishaw YMCA", "totalPoints": 296, "badgeLevels": { "Game Mastery": "Gold", "Teamwork": "Gold", "Esports Citizen": "Silver", "Personal Development": "Silver", "Digital Skills": "Silver" }, "completedModules": 1 },
+      { "userId": "u3", "displayName": "Player Two", "centreId": "c1", "centreName": "Wishaw YMCA", "totalPoints": 135, "badgeLevels": { "Game Mastery": "Bronze", "Teamwork": "Bronze", "Esports Citizen": "Silver", "Personal Development": "Bronze", "Digital Skills": "Bronze" }, "completedModules": 0 }
+    ]
+  }
+}

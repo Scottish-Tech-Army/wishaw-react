@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "email": "admin@wymca.org",
+      "role": "ADMIN",
+      "centreId": "c1",
+      "password": "admin123"
+    },
+    {
+      "id": "u2",
+      "email": "player1@wymca.org",
+      "role": "PLAYER",
+      "centreId": "c1",
+      "password": "player123"
+    },
+    {
+      "id": "u3",
+      "email": "player2@wymca.org",
+      "role": "PLAYER",
+      "centreId": "c1",
+      "password": "player123"
+    }
+  ],
+  "profiles": {
+    "u1": {
+      "displayName": "Emma W",
+      "firstName": "Emma",
+      "lastName": "Williamson",
+      "bio": "Centre Manager & COO",
+      "photoUrl": null,
+      "overlayTemplate": null,
+      "privacy": { "showInPublicList": true, "allowSocialSharing": true }
+    },
+    "u2": {
+      "displayName": "Player One",
+      "firstName": "Alex",
+      "lastName": "Smith",
+      "bio": "Fortnite fanatic",
+      "photoUrl": null,
+      "overlayTemplate": null,
+      "privacy": { "showInPublicList": true, "allowSocialSharing": true }
+    },
+    "u3": {
+      "displayName": "Player Two",
+      "firstName": "Jamie",
+      "lastName": "Lee",
+      "bio": "Minecraft builder",
+      "photoUrl": null,
+      "overlayTemplate": null,
+      "privacy": { "showInPublicList": true, "allowSocialSharing": false }
+    }
+  }
+}

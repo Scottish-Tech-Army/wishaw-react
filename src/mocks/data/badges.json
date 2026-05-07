@@ -1,0 +1,47 @@
+{
+  "mainBadges": [
+    { "id": "mb1", "name": "Game Mastery", "description": "Learning game mechanics, developing strategies, and making informed decisions during gameplay.", "icon": "🎮" },
+    { "id": "mb2", "name": "Teamwork", "description": "Working together by sharing goals, supporting each other, and completing tasks to achieve a common outcome.", "icon": "🤝" },
+    { "id": "mb3", "name": "Esports Citizen", "description": "Participating online positively, supporting fair competition, communicating appropriately.", "icon": "🌐" },
+    { "id": "mb4", "name": "Personal Development", "description": "Building confidence, self-awareness, reflecting on mistakes, setting goals and improving performance.", "icon": "🌟" },
+    { "id": "mb5", "name": "Digital Skills", "description": "Learning to stay safe online, using digital tools, communicating responsibly, and creating on digital platforms.", "icon": "💻" }
+  ],
+  "subBadges": [
+    { "id": "sb1", "name": "Skill Evaluation", "description": "Take part in an individual skills evaluation session", "mainBadgeId": "mb1", "mainBadgeName": "Game Mastery", "points": 6, "skills": ["Confidence", "Resilience", "Decision Making", "Communication"], "moduleId": "m1" },
+    { "id": "sb2", "name": "Master Plan", "description": "Create a game plan in relation to drop spot, rotation and loadouts", "mainBadgeId": "mb1", "mainBadgeName": "Game Mastery", "points": 6, "skills": ["Planning & Organising", "Decision Making", "Problem Solving", "Working with Others"], "moduleId": "m1" },
+    { "id": "sb3", "name": "Basic Mechanics", "description": "Demonstrate basic mechanics", "mainBadgeId": "mb1", "mainBadgeName": "Game Mastery", "points": 6, "skills": ["Planning & Organising", "Decision Making", "Problem Solving"], "moduleId": "m1" },
+    { "id": "sb4", "name": "Duo Snatcher", "description": "Contribute to team name and agree on conduct", "mainBadgeId": "mb2", "mainBadgeName": "Teamwork", "points": 3, "skills": ["Working with Others", "Creativity", "Confidence", "Leadership"], "moduleId": "m1" },
+    { "id": "sb5", "name": "Tactical Minds", "description": "Create communications strategy", "mainBadgeId": "mb2", "mainBadgeName": "Teamwork", "points": 6, "skills": ["Communication", "Confidence", "Working with Others", "Planning & Organising"], "moduleId": "m1" },
+    { "id": "sb6", "name": "Role Model", "description": "Understand your role within your team", "mainBadgeId": "mb2", "mainBadgeName": "Teamwork", "points": 6, "skills": ["Working with Others", "Self-Management", "Confidence", "Problem Solving"], "moduleId": "m1" },
+    { "id": "sb7", "name": "Learn In Action", "description": "Focus on previous mistakes by practising improvements in a competitive match", "mainBadgeId": "mb4", "mainBadgeName": "Personal Development", "points": 6, "skills": ["Decision Making", "Confidence", "Leadership"], "moduleId": "m1" },
+    { "id": "sb8", "name": "Goal Scorer", "description": "Set a new goal", "mainBadgeId": "mb4", "mainBadgeName": "Personal Development", "points": 6, "skills": ["Resilience", "Confidence", "Self-Management", "Creativity"], "moduleId": "m1" },
+    { "id": "sb9", "name": "Player Performance", "description": "Use replay review to identify mistakes in a competitive match", "mainBadgeId": "mb4", "mainBadgeName": "Personal Development", "points": 6, "skills": ["Confidence", "Resilience", "Self-Management"], "moduleId": "m1" },
+    { "id": "sb10", "name": "Conduct Creator", "description": "Help create the group code of conduct", "mainBadgeId": "mb3", "mainBadgeName": "Esports Citizen", "points": 6, "skills": ["Working with Others", "Resilience", "Problem Solving", "Self-Management"], "moduleId": "m1" },
+    { "id": "sb11", "name": "Code Keeper", "description": "Don't breach the group or duo conduct", "mainBadgeId": "mb3", "mainBadgeName": "Esports Citizen", "points": 6, "skills": ["Self-Management", "Resilience", "Confidence"], "moduleId": "m1" },
+    { "id": "sb12", "name": "Positive Voice", "description": "Encourage other players or teams", "mainBadgeId": "mb3", "mainBadgeName": "Esports Citizen", "points": 3, "skills": ["Working with Others", "Leadership", "Confidence", "Digital Literacy"], "moduleId": "m1" },
+    { "id": "sb13", "name": "Data Logger", "description": "Record stats in digital format", "mainBadgeId": "mb5", "mainBadgeName": "Digital Skills", "points": 6, "skills": ["Planning & Organising", "Creativity", "Digital Literacy"], "moduleId": "m1" },
+    { "id": "sb14", "name": "Prep Master", "description": "Use online tools to plan your strategy", "mainBadgeId": "mb5", "mainBadgeName": "Digital Skills", "points": 6, "skills": ["Planning & Organising", "Digital Literacy", "Decision Making"], "moduleId": "m1" },
+    { "id": "sb15", "name": "Memory Maker", "description": "Take screenshots, clips and create notes about your journey", "mainBadgeId": "mb5", "mainBadgeName": "Digital Skills", "points": 6, "skills": ["Digital Literacy", "Planning & Organising", "Working with Others"], "moduleId": "m1" },
+    { "id": "sb16", "name": "End Of The Road", "description": "Achieve diamond rank", "mainBadgeId": "mb1", "mainBadgeName": "Game Mastery", "points": 15, "skills": ["Digital Literacy", "Resilience", "Confidence"], "moduleId": "m1" },
+    { "id": "sb17", "name": "Base Builder", "description": "Help build and set up a shared homebase", "mainBadgeId": "mb1", "mainBadgeName": "Game Mastery", "points": 3, "skills": ["Problem Solving", "Planning & Organising", "Working with Others"], "moduleId": "m2" },
+    { "id": "sb18", "name": "Nether Ready", "description": "Gather weapons, armour, and food to journey to the nether", "mainBadgeId": "mb1", "mainBadgeName": "Game Mastery", "points": 6, "skills": ["Resilience", "Self-Management", "Decision Making", "Working with Others"], "moduleId": "m2" },
+    { "id": "sb19", "name": "Dragon Prepared", "description": "Understand and prepare for the Ender Dragon fight", "mainBadgeId": "mb1", "mainBadgeName": "Game Mastery", "points": 6, "skills": ["Planning & Organising", "Digital Literacy"], "moduleId": "m2" },
+    { "id": "sb20", "name": "Dragon Slayer", "description": "Kill the ender dragon and complete the game", "mainBadgeId": "mb1", "mainBadgeName": "Game Mastery", "points": 15, "skills": ["Digital Literacy", "Resilience", "Confidence"], "moduleId": "m2" }
+  ],
+  "userBadgeProgress": {
+    "u2": [
+      { "mainBadgeId": "mb1", "mainBadgeName": "Game Mastery", "totalPoints": 86, "level": "Gold", "earnedSubBadges": ["sb1", "sb2", "sb3", "sb16"] },
+      { "mainBadgeId": "mb2", "mainBadgeName": "Teamwork", "totalPoints": 71, "level": "Gold", "earnedSubBadges": ["sb4", "sb5", "sb6"] },
+      { "mainBadgeId": "mb3", "mainBadgeName": "Esports Citizen", "totalPoints": 34, "level": "Silver", "earnedSubBadges": ["sb10", "sb12"] },
+      { "mainBadgeId": "mb4", "mainBadgeName": "Personal Development", "totalPoints": 45, "level": "Silver", "earnedSubBadges": ["sb7", "sb8"] },
+      { "mainBadgeId": "mb5", "mainBadgeName": "Digital Skills", "totalPoints": 60, "level": "Silver", "earnedSubBadges": ["sb13", "sb14"] }
+    ],
+    "u3": [
+      { "mainBadgeId": "mb1", "mainBadgeName": "Game Mastery", "totalPoints": 29, "level": "Bronze", "earnedSubBadges": ["sb17", "sb18"] },
+      { "mainBadgeId": "mb2", "mainBadgeName": "Teamwork", "totalPoints": 30, "level": "Bronze", "earnedSubBadges": [] },
+      { "mainBadgeId": "mb3", "mainBadgeName": "Esports Citizen", "totalPoints": 33, "level": "Silver", "earnedSubBadges": [] },
+      { "mainBadgeId": "mb4", "mainBadgeName": "Personal Development", "totalPoints": 15, "level": "Bronze", "earnedSubBadges": [] },
+      { "mainBadgeId": "mb5", "mainBadgeName": "Digital Skills", "totalPoints": 28, "level": "Bronze", "earnedSubBadges": [] }
+    ]
+  }
+}

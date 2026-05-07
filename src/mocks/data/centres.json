@@ -1,0 +1,11 @@
+{
+  "centres": [
+    { "id": "c1", "name": "Wishaw YMCA", "location": "Wishaw, Scotland" },
+    { "id": "c2", "name": "Glasgow YMCA", "location": "Glasgow, Scotland" }
+  ],
+  "groups": [
+    { "id": "g1", "name": "Fortnite Juniors", "game": "Fortnite", "centreId": "c1", "centreName": "Wishaw YMCA", "memberCount": 12 },
+    { "id": "g2", "name": "Minecraft Survival", "game": "Minecraft", "centreId": "c1", "centreName": "Wishaw YMCA", "memberCount": 8 },
+    { "id": "g3", "name": "Rocket League", "game": "Rocket League", "centreId": "c1", "centreName": "Wishaw YMCA", "memberCount": 10 }
+  ]
+}
