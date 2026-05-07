@@ -1,0 +1,22 @@
+# Todo List
+
+- [x] Student Dashboard homepage
+  - Implement student dashboard with level bar, 'My Badges' section, and recent activity feed (e.g., 'Played Fortnite (+50XP)').
+- [X] Student Leaderboard page
+  - Create leaderboard page showing top students by XP/points, user rank, and filters (game, time period).
+- [x] Student Profile page
+  - Build profile page with user info, earned badges, XP history, and profile editing.
+- [ ] Admin Dashboard
+  - Develop admin dashboard with platform stats and quick links to manage users, badges, and activities.
+- [ ] User Management (Admin)
+  - List, search, and filter users; view/edit profiles and XP; assign/remove badges.
+- [ ] Badge Management (Admin)
+  - Create, edit, delete badges; assign badges to users; set badge requirements.
+- [ ] Activity Management (Admin)
+  - View/moderate recent activities; add/edit/remove activity types; approve/reject reported activities.
+- [ ] Leaderboard Management (Admin)
+  - Reset/adjust leaderboard; filter/export leaderboard data.
+- [ ] Authentication & Authorization
+  - Implement login/logout for students and admins; role-based access control.
+- [ ] Responsive UI & Navigation
+  - Design responsive navigation (sidebar/navbar) for both portals; ensure mobile-friendliness.
